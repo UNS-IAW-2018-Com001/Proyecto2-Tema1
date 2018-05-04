@@ -1,29 +1,23 @@
-var directionsDisplay = new google.maps.DirectionsRenderer;
-var directionsService = new google.maps.DirectionsService;
-
-
 var map, lugares, posicionActual, posicionDestino;
 var setMarkers;
 function initMap() {
-    obtenerLugares();
     crearMapa();
+    obtenerLugares();
     cargarPosicionActual();
     cargarLugares();
     // armarRuta();
 }
 function obtenerLugares() {
     lugares = obtenerLocalizacionGrupos();
-
 }
 function crearMapa() {
-    posicionActual = new google.maps.LatLng(lugares[0][1], lugares[0][2])
+    var directionsDisplay = new google.maps.DirectionsRenderer;
+    var directionsService = new google.maps.DirectionsService;
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
-        center: posicionActual
     });
     //directionsDisplay.setMap(map);
-    //directionsDisplay.setPanel(document.getElementById('right-panel'));
-    
+    //directionsDisplay.setPanel(document.getElementById('right-panel'));  
 }
 function centrarMapa(lat,long){
     pos= new google.maps.LatLng(lat, long);

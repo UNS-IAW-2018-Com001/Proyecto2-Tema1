@@ -191,13 +191,17 @@ function seleccionarTabGrupo() {
 function obtenerLocalizacionGrupos() {
     var retorno = new Array();
      $.each(datos, function (index, grupo) {
-        var grupoI = new Array();
+        var grupoI = new Array();        
         grupoI.push(grupo.nombre);
         grupoI.push(grupo.ubicacion.latitud);
         grupoI.push(grupo.ubicacion.longitud);
         grupoI.push(grupo.codigo);
-        retorno.push(grupoI);
+        retorno.push(grupoI);  
+        
+        var posicion=new google.maps.LatLng(grupo.ubicacion.latitud,grupo.ubicacion.longitud)
+        map.setCenter(posicion);
    });
+   
     return retorno;
 }
 function obtenerImagenesGrupo(nombre_cod) {
