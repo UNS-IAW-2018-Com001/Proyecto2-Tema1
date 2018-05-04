@@ -5,24 +5,24 @@ var enGrupo;
 
 $(function () {
     $.get("./data/grupo.json", function (data) {
-       mostrarGrupo(data.Asociacion.grupos);
+       datos = data.Asociacion.grupos;
+      $('#panelInfo').hide();
        $('#panel-nuevoComentario').hide();
        initMap();
     });
     $.get("./data/ramas.json", function (data) {
-      ramas =data.ramas;      
+      ramas =data.ramas;
     });
 });
 
 function mostrarGrupo(data) {
     $("#gruposyRamas").empty();
-    datos = data;
-     
+
     $.each(data, function (index, grupo) {
         agregarGrupo(grupo);
     });
-    
-    $('#panelInfo').hide();
+   $('#panelInfo').hide();
+
 }
 
 function mostrarGrupo2() {
@@ -42,8 +42,8 @@ function mostrarRama(nombre_cod) {
     seleccionarTabRama();
     var raw;
     $("#gruposyRamas").empty();
-    $.each(ramas, function (index, rama) {        
-        if (nombre_cod == (rama.GrupoPerteneciente)) {            
+    $.each(ramas, function (index, rama) {
+        if (nombre_cod == (rama.GrupoPerteneciente)) {
             raw = $("<button type=\"button\" class=\"list-group-item\" onclick=\"mostrarInfoRama(" + rama.numeracion + ")\"></button>").text(rama.nombre);
              $("#gruposyRamas").append(raw);
             }
@@ -87,16 +87,16 @@ function mostrarInfoGrupo(nombre_cod) {
 
             centrarMapa(grupo.ubicacion.latitud,grupo.ubicacion.longitud);
             crearGaleria(obtenerImagenesGrupo(nombre_cod));
-             
+
              $("#Panel_Titulo").empty();
              $("#Panel_Titulo").append("Informacion del grupo: "+grupo.nombre);
-             
-             
+
+
             $("#Titulo_Comentario").empty();
             $("#Titulo_Comentario").append("Comentarios del grupo:");
-             
+
             $("#comments-list").empty();
-            
+
              if(grupo.comentarios.length==0){
                     $("#Titulo_Comentario").append($("<h3></h3>").text("Todavia no hay comentarios. Se el primero en comentar!"));
                 }
@@ -106,10 +106,10 @@ function mostrarInfoGrupo(nombre_cod) {
 
             });
             mostrar_comentarios_Locales();
-            
+
         }
     });
-    
+
 }
 
 function mostrarComentarios(comentario) {
@@ -137,7 +137,7 @@ function mostrarComentarios(comentario) {
 function mostrarInfoRama(num) {
      codigo = num;
     enGrupo = false;
-    $.each(ramas, function (index, rama) {            
+    $.each(ramas, function (index, rama) {
            if (num == rama.numeracion) {
                 $("#boddy2").empty();
                 $("#boddy2").append("<dt>Nombre rama:</dt>");
@@ -153,16 +153,16 @@ function mostrarInfoRama(num) {
                 $("#boddy2").append("<dt>Tipo:</dt>");
                 $("#boddy2").append($("<dd></dd>").text(rama.tipo));
                 crearGaleria(obtenerImagenesRama(num));
-                
-                 
+
+
                 $("#Panel_Titulo").empty();
                 $("#Panel_Titulo").append("Informacion de la rama: "+rama.nombre);
-             
-                
+
+
                 $("#Titulo_Comentario").empty();
                 $("#Titulo_Comentario").append("Comentarios de la rama:");
                 $("#comments-list").empty();
-                
+
                 if(rama.comentarios.length==0){
                     $("#Titulo_Comentario").append($("<h3></h3>").text("Todavia no hay comentarios. Se el primero en comentar!"));
                 }
@@ -188,19 +188,19 @@ function seleccionarTabGrupo() {
 function obtenerLocalizacionGrupos() {
     var retorno = new Array();
      $.each(datos, function (index, grupo) {
-        var grupoI = new Array();        
+        var grupoI = new Array();
         grupoI.push(grupo.nombre);
         grupoI.push(grupo.ubicacion.latitud);
         grupoI.push(grupo.ubicacion.longitud);
         grupoI.push(grupo.codigo);
-        retorno.push(grupoI);  
+        retorno.push(grupoI);
    });
     return retorno;
 }
 function obtenerImagenesGrupo(nombre_cod) {
     var retorno = new Array();
-   $.each(ramas, function (index, rama) {        
-        if (nombre_cod == (rama.GrupoPerteneciente)) {            
+   $.each(ramas, function (index, rama) {
+        if (nombre_cod == (rama.GrupoPerteneciente)) {
           $.each(rama.fotos, function (index, foto){
                     var ArregloFoto=new Array();
                     ArregloFoto.push(rama.nombre);
@@ -213,7 +213,7 @@ function obtenerImagenesGrupo(nombre_cod) {
 }
 function obtenerImagenesRama(num) {
     var retorno = new Array();
-   $.each(ramas, function (index, rama) {            
+   $.each(ramas, function (index, rama) {
        if (num == rama.numeracion) {
           $.each(rama.fotos, function (index, foto){
                     var ArregloFoto=new Array();
@@ -223,7 +223,7 @@ function obtenerImagenesRama(num) {
                 });
             }
         });
-        
+
     return retorno;
 }
 
@@ -232,7 +232,7 @@ function obtenerImagenesRama(num) {
 
 
 function enviarComentario(){
-    
+
     $('#panel-nuevoComentario').hide();
     var nick = $("#Nombre").val();
     var comentario = $("#coment").val();
@@ -304,8 +304,8 @@ function guardarComentario(nick, comentario, fecha, hora) {
     ;
     if (nuevosComentarios != null) {
         nuevosComentarios.screens.push({'nombre': nick, 'codigo': codigo, 'comentario': comentario, 'fecha': fecha, 'hora': hora});
-        localStorage.setItem(item_Name, JSON.stringify(nuevosComentarios));      
-        
+        localStorage.setItem(item_Name, JSON.stringify(nuevosComentarios));
+
     }
 }
 
