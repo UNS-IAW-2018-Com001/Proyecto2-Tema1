@@ -38,8 +38,3 @@ function insertarImagen(imagen,titulo) {
     return ret;
 }
 
-
-$(document).ready(function () {
-
-
-});

@@ -16,7 +16,7 @@ function crearMapa() {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
     });
-    //directionsDisplay.setMap(map);
+    //directionsDisplay.setMap(map) ;
     //directionsDisplay.setPanel(document.getElementById('right-panel'));  
 }
 function centrarMapa(lat,long){
@@ -74,8 +74,3 @@ function armarRuta() {
 
     });
 }
-
-
-
-
-
