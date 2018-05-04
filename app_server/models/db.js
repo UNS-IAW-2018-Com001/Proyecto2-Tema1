@@ -38,4 +38,3 @@ process.on('SIGTERM', () => {                      
 
 require('./filtros');
 require('./grupos');
-require('./pizzas');
