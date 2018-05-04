@@ -4,8 +4,8 @@ var codigo;
 var enGrupo;
 
 $(function () {
-    $.get("./data/grupo.json", function (data) {
-       datos = data.Asociacion.grupos;
+    $.get("./api/grupos", function (data) {
+       datos = data;
       $('#panelInfo').hide();
        $('#panel-nuevoComentario').hide();
        initMap();
@@ -97,6 +97,9 @@ function mostrarInfoGrupo(nombre_cod) {
 
             $("#comments-list").empty();
 
+
+/*
+
              if(grupo.comentarios.length==0){
                     $("#Titulo_Comentario").append($("<h3></h3>").text("Todavia no hay comentarios. Se el primero en comentar!"));
                 }
@@ -106,7 +109,7 @@ function mostrarInfoGrupo(nombre_cod) {
 
             });
             mostrar_comentarios_Locales();
-
+*/
         }
     });
 
