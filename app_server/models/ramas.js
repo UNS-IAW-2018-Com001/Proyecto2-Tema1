@@ -4,9 +4,9 @@ const GrupoSchema = new mongoose.Schema({
 							nombre:{
 								type: String,
 								required: true
-							}
+							},
 							GrupoPerteneciente: {
-								type: Number,
+								type: String,
 								required: true
 							},
 							edad_minima: {
@@ -26,11 +26,11 @@ const GrupoSchema = new mongoose.Schema({
 								required: true
 							},
 							fotos: [String],
-							tipo{
+							tipo: {
 								type: String,
 								required: true
 							}
 
 						});
 
-mongoose.model('grupos', GrupoSchema);
+mongoose.model('ramas', GrupoSchema);
