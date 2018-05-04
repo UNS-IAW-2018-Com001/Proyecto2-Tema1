@@ -1,0 +1,9 @@
+    <div class="panel" id="filtros">
+       <div><center><h3 id="filtroTag">Filtrar Resultados</h3></center></div>
+       <div>
+         {% for filtro in filtros %}
+               {% include "components/renderFiltro.twig" %}
+          {% endfor %}
+
+       </div>
+    </div>

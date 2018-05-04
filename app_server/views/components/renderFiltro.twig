@@ -1,0 +1,8 @@
+    <div class="btn-group">
+       <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">{{filtro.nombre}} <span class="caret"></span></button>
+       <ul class="dropdown-menu">
+         {% for opcion in filtro.opciones %}
+               <li><a href="#">opcion</a></li>
+          {% endfor %} 
+       </ul>
+    </div>

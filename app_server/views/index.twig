@@ -1,0 +1,29 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+       {% include "components/navegationBar.twig" %}
+       <div class="panel panel-info" id="panelTOTAL">
+           <div class="row">
+               <div class="col-md-4" id="panelIzquierdo">
+                   {% include "components/panelDeFitros.twig" %}
+                   {% include "components/panelGruposYRamas.twig" %}
+               </div>
+               <div class="col-md-8" id="panelDerecho">
+                   <div id="map"></div>
+               </div>
+           </div>
+           <div class="row" id="margen"><h1>   </h1></div>
+           <div class="row info" id="PanelInformacion"   >
+               <div class="panel panel-info" id="panelInfo">
+                   {% include "components/panelInfoHead.twig" %}
+                   <div class="panel-body" id="bodyinfo">
+                       <dl id="boddy2"></dl>
+                       {% include "components/panelImagenes.twig" %}
+                       {% include "components/panelNuevoComentario.twig" %}
+                       {% include "components/panelContenedorDeComentarios.twig" %}
+                   </div>
+               </div>
+               <div id="right-panel"></div>
+           </div>
+       </div>
+{% endblock %}
