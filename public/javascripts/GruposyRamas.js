@@ -10,42 +10,67 @@ $(function () {
        $('#panel-nuevoComentario').hide();
        initMap();
     });
+
+$(document).on("click",".Botongrupos", function(){
+      var id_grupo= $(this).attr('id');
+        $("#filtroTag").empty();
+        $("#filtroTag").append("<h1>grupos</h1>");
+      mostrarRama(id_grupo);
+    });
+
+$(document).on("click",".Botonramas", function(){
+      var id_rama= $(this).attr('id');
+      mostrarInfoRama(id_rama);
+        $("#filtroTag").empty();
+        $("#filtroTag").append("<h1>ramas</h1>");
+    });
+
+    //funciones relacionadas al boton principal de gruposyRamas
+
+$(document).on("click","#id_grupo", function(){
+        mostrarGrupo();
+        $("#filtroTag").empty();
+        $("#filtroTag").append("<h1>recargo</h1>");
+    });
+
+
+
 });
 
-function mostrarGrupo(data) {
+//funcion relacionada a cada uno de los botones de grupo
+$
+
+
+function mostrarGrupo() {
+    seleccionarTabGrupo();
     $("#gruposyRamas").empty();
-    $.each(data, function (index, grupo) {
+    $.each(datos, function (index, grupo) {
         agregarGrupo(grupo);
     });
    $('#panelInfo').hide();
 
 }
 
-function mostrarGrupo2() {
-    seleccionarTabGrupo();
-    mostrarGrupo(datos);
-}
-
-function agregarGrupo(grupo) {
-    var nombre = $("<button type=\"button\" class=\"list-group-item\" onclick=\"mostrarRama("+grupo.codigo +")\"></button>").text(grupo.nombre);
-    $("#gruposyRamas").append(nombre);
-
-}
-
 
 function mostrarRama(nombre_cod) {
-
-    $.get("./api/ramas?id_grupo="+nombre_cod, function (data) {
-        ramas=data;
+   $.get("./api/ramas?id_grupo="+nombre_cod, function (data) {
         mostrarInfoGrupo(nombre_cod);
-        seleccionarTabRama();
+         ramas=data;
+      seleccionarTabRama();
         var raw;
         $("#gruposyRamas").empty();
         $.each(ramas, function (index, rama) {
-                raw = $("<button type=\"button\" class=\"list-group-item\" onclick=\"mostrarInfoRama(" + rama._id + ")\"></button>").text(rama.nombre);
+                raw = $("<button type=\"button\" class=\"list-group-item Botonramas\" id=\"" + rama._id + "\"></button>").text(rama.nombre);
                 $("#gruposyRamas").append(raw);
           });
     });
+
+}
+
+
+function agregarGrupo(grupo) {
+    var nombre = $("<button type=\"button\" class=\"list-group-item Botongrupos\" id=\""+grupo._id +"\" ></button>").text(grupo.nombre);
+    $("#gruposyRamas").append(nombre);
 
 }
 
@@ -83,7 +108,7 @@ function mostrarInfoGrupo(nombre_cod) {
             $("#boddy2").append("<dt>Religion:</dt>");
             $("#boddy2").append($("<dd></dd>").text(grupo.religion));
 
-            centrarMapa(grupo.ubicacion.latitud,grupo.ubicacion.longitud);
+          //  centrarMapa(grupo.ubicacion.latitud,grupo.ubicacion.longitud);
             crearGaleria(obtenerImagenesGrupo(nombre_cod));
 
              $("#Panel_Titulo").empty();
@@ -139,7 +164,7 @@ function mostrarInfoRama(num) {
      codigo = num;
     enGrupo = false;
     $.each(ramas, function (index, rama) {
-           if (num == rama.numeracion) {
+           if (num == rama._id) {
                 $("#boddy2").empty();
                 $("#boddy2").append("<dt>Nombre rama:</dt>");
                 $("#boddy2").append($("<dd></dd>").text(rama.nombre));
@@ -163,7 +188,7 @@ function mostrarInfoRama(num) {
                 $("#Titulo_Comentario").empty();
                 $("#Titulo_Comentario").append("Comentarios de la rama:");
                 $("#comments-list").empty();
-
+/*
                 if(rama.comentarios.length==0){
                     $("#Titulo_Comentario").append($("<h3></h3>").text("Todavia no hay comentarios. Se el primero en comentar!"));
                 }
@@ -171,7 +196,8 @@ function mostrarInfoRama(num) {
                 $.each(rama.comentarios, function (index, comentario) {
                     mostrarComentarios(comentario);
                 });
-                mostrar_comentarios_Locales();
+                mostrar_comentarios_Locales();*/
+
             }
 
         });
@@ -219,7 +245,7 @@ function obtenerImagenesGrupo(nombre_cod) {
 function obtenerImagenesRama(num) {
     var retorno = new Array();
    $.each(ramas, function (index, rama) {
-       if (num == rama.numeracion) {
+       if (num == rama._id) {
           $.each(rama.fotos, function (index, foto){
                     var ArregloFoto=new Array();
                     ArregloFoto.push(rama.nombre);

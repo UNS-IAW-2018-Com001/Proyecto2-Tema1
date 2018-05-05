@@ -1,11 +1,11 @@
-   <div id="DivGruposyRamas">
-       <ul class="nav nav-tabs">
-           <li role="presentation" id="id_grupo" class="active" onclick="mostrarGrupo2()"><a href="#">Grupos</a></li>
-           <li role="presentation" id="id_rama" ><a href="#">Ramas</a></li>
-       </ul>
-       <div class="list-group" id="gruposyRamas">
-          {% for grupo in grupos %}
-            <button type="button" class="list-group-item" onclick="mostrarRama({{grupo.codigo}})">{{grupo.nombre}}</button>
-          {% endfor %}x
-       </div>
-   </div>
+<div id="DivGruposyRamas">
+    <ul class="nav nav-tabs">
+        <li role="presentation" id="id_grupo" class="active" ><a href="#">Grupos</a></li>
+        <li role="presentation" id="id_rama" ><a href="#">Ramas</a></li>
+    </ul>
+    <div class="list-group" id="gruposyRamas">
+       {% for grupo in grupos %}
+         <button type="button" class="list-group-item Botongrupos"  id="{{grupo._id}}">{{grupo.nombre}}</button>
+       {% endfor %}x
+    </div>
+</div>
