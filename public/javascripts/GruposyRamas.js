@@ -48,7 +48,7 @@ $.ajax({
       FB.Event.subscribe('auth.authResponseChange', function(response) {
         if (response && response.status == 'connected') {
           FB.api('/me', function(response) {
-            alert('Nombre: ' + data.name);
+            alert('Nombre: ' + response.name);
           });
         }
       });
