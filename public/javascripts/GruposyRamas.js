@@ -156,7 +156,7 @@ function mostrarInfoGrupo(nombre_cod) {
 
 
 
-             if(comentarioGrupos.length==0){
+             if(comentarioGrupos.isEmpty==0){
                     $("#Titulo_Comentario").append($("<h3></h3>").text("Todavia no hay comentarios. Se el primero en comentar!"));
                 }
             //Cargamos comentarios de cada uno de los grupos
@@ -221,7 +221,7 @@ function mostrarInfoRama(num) {
                 $("#Titulo_Comentario").append("Comentarios de la rama:");
                 $("#comments-list").empty();
 
-                if(comentarioRama.length==0){
+                if(comentarioRama.isEmpty==0){
                     $("#Titulo_Comentario").append($("<h3></h3>").text("Todavia no hay comentarios. Se el primero en comentar!"));
                 }
                 //Cargamos comentarios de cada uno de las ramas
@@ -365,10 +365,10 @@ function guardarComentario(nick, comentario, fecha, hora) {
     else
         item_Name = 'ramas';
     var nuevosComentarios = JSON.parse(localStorage.getItem(item_Name));
-    
+
     if (nuevosComentarios != null && dataUser!=null) {
 
-        nuevosComentarios.screens.push({'nombre': , 'codigo': codigo, 'comentario': comentario, 'fecha': fecha, 'hora': hora});
+        nuevosComentarios.screens.push({'nombre': dataUser.name, 'codigo': codigo, 'comentario': comentario, 'fecha': fecha, 'hora': hora});
         localStorage.setItem(item_Name, JSON.stringify(nuevosComentarios));
 
     }
