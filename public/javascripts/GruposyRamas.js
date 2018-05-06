@@ -88,8 +88,9 @@ function mostrarGrupo() {
 
 function mostrarRama(nombre_cod) {
    $.get("./api/ramas?id_grupo="+nombre_cod, function (data) {
+        ramas=data;
         mostrarInfoGrupo(nombre_cod);
-         ramas=data;
+
       seleccionarTabRama();
         var raw;
         $("#gruposyRamas").empty();
