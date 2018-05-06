@@ -35,6 +35,25 @@ $(document).on("click","#id_grupo", function(){
 
     });
 
+//login facebook
+$.ajax({
+        url: '//connect.facebook.net/es_ES/all.js',
+        dataType: 'script',
+        cache: true,
+        success: function() {
+          FB.init({
+        appId: '211557066103646',
+        xfbml: true
+      });
+      FB.Event.subscribe('auth.authResponseChange', function(response) {
+        if (response && response.status == 'connected') {
+          FB.api('/me', function(response) {
+            alert('Nombre: ' + data.name);
+          });
+        }
+      });
+      }
+    });
 
 
 });
