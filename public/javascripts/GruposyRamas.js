@@ -2,6 +2,10 @@ var datos;
 var ramas;
 var codigo;
 var enGrupo;
+var comentarioGrupos;
+var comentarioRama;
+
+
 
 $(function () {
     $.get("./api/grupos", function (data) {
@@ -13,24 +17,22 @@ $(function () {
 
 $(document).on("click",".Botongrupos", function(){
       var id_grupo= $(this).attr('id');
-        $("#filtroTag").empty();
-        $("#filtroTag").append("<h1>grupos</h1>");
-      mostrarRama(id_grupo);
+        cargarComentarioGrupo(id_grupo);
+        mostrarRama(id_grupo);
     });
 
 $(document).on("click",".Botonramas", function(){
       var id_rama= $(this).attr('id');
+      cargarComentarioRama(id_rama);
       mostrarInfoRama(id_rama);
-        $("#filtroTag").empty();
-        $("#filtroTag").append("<h1>ramas</h1>");
+
     });
 
     //funciones relacionadas al boton principal de gruposyRamas
 
 $(document).on("click","#id_grupo", function(){
         mostrarGrupo();
-        $("#filtroTag").empty();
-        $("#filtroTag").append("<h1>recargo</h1>");
+
     });
 
 
@@ -38,7 +40,18 @@ $(document).on("click","#id_grupo", function(){
 });
 
 //funcion relacionada a cada uno de los botones de grupo
-$
+
+function cargarComentarioGrupo(nombre_cod) {
+  $.get("./api/comentarios?id="+nombre_cod, function (data) {
+        comentarioGrupos=data;
+        });
+}
+
+function cargarComentarioRama(nombre_cod) {
+  $.get("./api/comentarios?id="+nombre_cod, function (data) {
+        comentarioRama=data;
+        });
+}
 
 
 function mostrarGrupo() {
@@ -121,18 +134,16 @@ function mostrarInfoGrupo(nombre_cod) {
             $("#comments-list").empty();
 
 
-/*
 
-             if(grupo.comentarios.length==0){
+             if(comentarioGrupos.length==0){
                     $("#Titulo_Comentario").append($("<h3></h3>").text("Todavia no hay comentarios. Se el primero en comentar!"));
                 }
             //Cargamos comentarios de cada uno de los grupos
-            $.each(grupo.comentarios, function (index, comentario) {
+            $.each(comentarioGrupos, function (index, comentario) {
                 mostrarComentarios(comentario);
 
             });
-            mostrar_comentarios_Locales();
-*/
+            //mostrar_comentarios_Locales();
         }
     });
 
@@ -188,15 +199,15 @@ function mostrarInfoRama(num) {
                 $("#Titulo_Comentario").empty();
                 $("#Titulo_Comentario").append("Comentarios de la rama:");
                 $("#comments-list").empty();
-/*
-                if(rama.comentarios.length==0){
+
+                if(comentarioRama.length==0){
                     $("#Titulo_Comentario").append($("<h3></h3>").text("Todavia no hay comentarios. Se el primero en comentar!"));
                 }
                 //Cargamos comentarios de cada uno de las ramas
-                $.each(rama.comentarios, function (index, comentario) {
+                $.each(comentarioRama, function (index, comentario) {
                     mostrarComentarios(comentario);
                 });
-                mostrar_comentarios_Locales();*/
+              //  mostrar_comentarios_Locales();*/
 
             }
 
