@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const dbURI = process.env.MLAB_URI;
+//const dbURI = 'mongodb://localhost/scotus';
 mongoose.connect(dbURI);
 
 mongoose.connection.on('connected', () => {
