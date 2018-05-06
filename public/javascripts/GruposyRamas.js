@@ -4,7 +4,7 @@ var codigo;
 var enGrupo;
 var comentarioGrupos;
 var comentarioRama;
-
+var dataUser;
 
 
 $(function () {
@@ -48,9 +48,11 @@ $.ajax({
       FB.Event.subscribe('auth.authResponseChange', function(response) {
         if (response && response.status == 'connected') {
           FB.api('/me', function(response) {
-            alert('Nombre: ' + response.name);
+            alert('datos: ' + response);
+            dataUser=response;
           });
-        }
+        }else
+            dataUser=null;
       });
       }
     });
@@ -247,12 +249,12 @@ function obtenerLocalizacionGrupos() {
      $.each(datos, function (index, grupo) {
         var grupoI = new Array();
         grupoI.push(grupo.nombre);
-        grupoI.push(grupo.ubicacion.latitud);
-        grupoI.push(grupo.ubicacion.longitud);
+        grupoI.push(grupo.ubicacion.coords[0]);
+        grupoI.push(grupo.ubicacion.coords[1]);
         grupoI.push(grupo.codigo);
         retorno.push(grupoI);
 
-        var posicion=new google.maps.LatLng(grupo.ubicacion.latitud,grupo.ubicacion.longitud)
+        var posicion=new google.maps.LatLng(grupo.ubicacion.coords[0],grupo.ubicacion.coords[1])
         map.setCenter(posicion);
    });
 
@@ -301,7 +303,7 @@ function enviarComentario(){
     var f = new Date();
     var fecha = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
     var hora = f.getHours() + ":" + f.getMinutes();
-    guardarComentario(nick, comentario, fecha, hora);
+    guardarComentario(comentario, fecha, hora);
     mostrarComentariosAgregado(nick, comentario, fecha, hora);
 }
 
@@ -356,15 +358,17 @@ function inicializarAlmacenamiento_local() {
 }
 
 function guardarComentario(nick, comentario, fecha, hora) {
+
     var item_Name;
     if (enGrupo)
         item_Name = 'grupos';
     else
         item_Name = 'ramas';
     var nuevosComentarios = JSON.parse(localStorage.getItem(item_Name));
-    ;
-    if (nuevosComentarios != null) {
-        nuevosComentarios.screens.push({'nombre': nick, 'codigo': codigo, 'comentario': comentario, 'fecha': fecha, 'hora': hora});
+    
+    if (nuevosComentarios != null && dataUser!=null) {
+
+        nuevosComentarios.screens.push({'nombre': , 'codigo': codigo, 'comentario': comentario, 'fecha': fecha, 'hora': hora});
         localStorage.setItem(item_Name, JSON.stringify(nuevosComentarios));
 
     }
