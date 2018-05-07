@@ -32,6 +32,9 @@ body {
 #warningComentario{
     color:red;
 }
+.navbar-right{
+    margin-top:5px;
+}
 #centrado{
    width: 100%;
 }
