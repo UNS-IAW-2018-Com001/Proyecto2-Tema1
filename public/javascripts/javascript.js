@@ -6,7 +6,7 @@ function guadarCSSActual(){
     $.get("./api/preferenciasUsuario?user_id="+dataUser.id, function (data) {
       if(data!=null){
 
-  	        alert("error "+JSON.stringify(data));
+  	        alert("error "+data);
         document.getElementById('cssArchivo').href=data.css;
 
       }
