@@ -13,7 +13,7 @@ const postPreferencias=function(req,res){
   //preferencia.remove({"idUser":req.body.elemento.idUser},function (err){});
   //preferencia.collection.insert([req.body.elemento],onInsert);
   //res.status(200).jsonp(req.body.elemento);
-  console.console.log(req.body.elemento);
+  
   res.send(req.body.elemento);
 };
 

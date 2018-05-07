@@ -5,7 +5,7 @@ function cargarArchivoCSS(){
 function guadarCSSActual(){
   $("#filtros").append("<h1>A200</h1>");
 
-    $.get("./api/preferenciasUsuarios?user_id="+dataUser.id, function (data) {
+    $.get("./api/preferenciasUsuario?user_id="+dataUser.id, function (data) {
 
       $("#filtros").append("<h1>Antes de post Status 200</h1>");
       document.getElementById('cssArchivo').href=data.stylesheet;
@@ -23,5 +23,5 @@ function guadarCSSActual(){
 function cambiarArchivoCss(archivo) {
     document.getElementById('cssArchivo').href = archivo;
     var elemento_nuevo={idUser:dataUser.id,css:archivo};
-    guardar('./api/preferenciasUsuarios',elemento_nuevo);
+    guardar('./api/preferenciasUsuario',elemento_nuevo);
 }
