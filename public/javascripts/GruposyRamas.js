@@ -322,9 +322,23 @@ function enviarComentario(){
 
     var Nuevo_comentario =   {"id": nick, "perteneciente": codigo, "texto": comentario, "fecha": fecha, "horario": hora, "imagen": imagen};
 
-    $.post("/api/comentarios", Nuevo_comentario);
+  guardar( Nuevo_comentario);
 
     mostrarComentariosAgregado(nick, comentario, fecha, hora);
+}
+
+function guardar(comentario) {
+	const jsonString = JSON.stringify(Array.from(comentario.values()));
+	$.ajax({
+	    url: './api/comentarios',
+	    type: 'POST',
+	    data: JSON.stringify({comentario: JSON.parse(jsonString)}),
+    	contentType: "application/json",
+    	dataType: "json",
+	    success: function(data){
+	        callback((data != undefined) ? new Set(data) : new Set());
+	    }
+	});
 }
 
 

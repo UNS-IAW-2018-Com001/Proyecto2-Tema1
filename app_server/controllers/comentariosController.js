@@ -12,26 +12,19 @@ const getComentarios = function(req, res){
 };
 
 const postComentarios=function(req,res){
-  /*
-  Comentario.update({_id: req.user._id},  req.body,
--  			{upsert: true, setDefaultsOnInsert: true}, (err, comentario) => {
--  				if (err) {
--  					res
--  						.status(400)
--  						.json(err);
--  	        	} else {
--  					res
--  						.status(201)
--  						.json(comentario);
--  				}
--  			})
 
-
-Comentario..updateOne({id: req.body.id}, {$set: req.body}, function(err, res) {
--      if (err) throw err;
--    });
--  res.send(req.body);
-*/
+Comentario.update({_id: req.user._id}, {id: req.body.id, perteneciente: req.body.perteneciente, texto: req.body.texto, fecha: req.body.fecha, horario: req.body.horario, imagen: req.body.imagen},
+  			{upsert: true, setDefaultsOnInsert: true}, (err, comentario) => {
+  				if (err) {
+  					res
+  						.status(400)
+  						.json(err);
+  	        	} else {
+  					res
+  						.status(201)
+  						.json(comentario);
+  				}
+  			})
 };
 
 
