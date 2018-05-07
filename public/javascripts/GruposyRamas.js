@@ -49,7 +49,7 @@ $.ajax({
         habilitarComentario();
         if (response && response.status == 'connected') {
           FB.api('/me', function(response) {
-            alert('datos: ' + response);
+            alert('datos: ' + response.stringify());
             dataUser=response;
           });
         }else
@@ -314,8 +314,8 @@ function obtenerImagenesRama(num) {
 function enviarComentario(){
 
     $('#panel-nuevoComentario').hide();
-    var nick = dataUser.name();
-    var imagen= dataUser.picture();
+    var nick = dataUser.name;
+    var imagen= dataUser.picture;
     var comentario = $("#coment").val();
     var f = new Date();
     var fecha = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
