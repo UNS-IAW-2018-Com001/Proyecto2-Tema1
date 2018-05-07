@@ -57,8 +57,14 @@ body {
 #BotonFiltro1{
     padding: 1em;
 }
-
- #margen{
+#nuevoComentario{
+    float: left;
+    margin-right: 20px;
+}
+#warningComentario{
+    color:red;
+}
+#margen{
      background-color: #a94442;
  }
  
