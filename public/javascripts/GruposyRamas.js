@@ -191,7 +191,7 @@ function habilitarComentario(){
 
 function mostrarComentarios(comentario) {
   var img;
-  if(comentario.imagen=="undefined")img= "/images/avatar.png";
+  if(comentario.imagen==undefined)img= "/images/avatar.png";
   else img=comentario.imagen;
 
     $("#comments-list").append("<li>" +
