@@ -12,6 +12,7 @@ const getComentarios = function(req, res){
 };
 
 const postComentarios=function(req,res){
+  /*
   Comentario.update({_id: req.user._id},  req.body,
 -  			{upsert: true, setDefaultsOnInsert: true}, (err, comentario) => {
 -  				if (err) {
@@ -24,6 +25,7 @@ const postComentarios=function(req,res){
 -  						.json(comentario);
 -  				}
 -  			})
+*/
 };
 
 
