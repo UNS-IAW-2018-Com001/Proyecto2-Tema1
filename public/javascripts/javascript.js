@@ -14,7 +14,7 @@ function guadarCSSActual(){
     else{
       var archivo=document.getElementById('cssArchivo').href;
       var elemento_nuevo={idUser:dataUser.id,css:archivo};
-      $("#filtros").append("<h1>Antes de guardar pref"+JSON.stringify(elemento_nuevo)+"</h1>");
+      $("#filtros").append("<h1>Antes de guardar pref"+JSON.stringify(data.status)+"</h1>");
       guardar('./api/preferenciasUsuario',elemento_nuevo);
       $("#filtros").append("<h1>Despues de guardar pref"+JSON.stringify(elemento_nuevo)+"</h1>");
     }
