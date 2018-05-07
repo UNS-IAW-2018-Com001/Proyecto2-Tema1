@@ -54,9 +54,6 @@ function cargarPosicionActual() {
                 lng: position.coords.longitude
             };
             agregarLugarAlMapa(posicionActual, "Usted esta aquí", 0, "", "lue");
-
-            bounds.extend(posicionActual);
-            map.setCenter(posicionActual);
         }, function () {});
     }
 }
