@@ -23,6 +23,13 @@ body {
 #panelIzquierdo{
     padding-left: 3em;
 }
+#nuevoComentario{
+    float: left;
+    margin-right: 20px;
+}
+#warningComentario{
+    color:red;
+}
 
  #map {
    width: 100%;
