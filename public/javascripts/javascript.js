@@ -5,7 +5,10 @@ function cargarArchivoCSS(){
 function guadarCSSActual(){
     $.get("./api/preferenciasUsuario?user_id="+dataUser.id, function (data) {
       if(data!=null){
+
+  	        alert("error "+JSON.stringify(data));
         document.getElementById('cssArchivo').href=data.css;
+
       }
     else{
       var archivo=document.getElementById('cssArchivo').href;
