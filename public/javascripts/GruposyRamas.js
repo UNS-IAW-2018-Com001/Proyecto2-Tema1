@@ -168,7 +168,7 @@ function mostrarInfoGrupo(nombre_cod) {
                 mostrarComentarios(comentario);
 
             });
-            //mostrar_comentarios_Locales();
+
         }
     });
 
@@ -252,7 +252,7 @@ function mostrarInfoRama(num) {
                 $.each(comentarioRama, function (index, comentario) {
                     mostrarComentarios(comentario);
                 });
-              //  mostrar_comentarios_Locales();*/
+              
 
             }
 
@@ -372,51 +372,11 @@ function mostrarComentariosAgregado(nick, comentario, fecha, hora, imagen ) {
 
 }
 
-function inicializarAlmacenamiento_local() {
-
-    var g = localStorage.getItem('grupos');
-    if (g == null) {
-        var arreglo1 = {
-            'screens': [],
-            'state': true
-        };
-        localStorage.setItem('grupos', JSON.stringify(arreglo1));
-    }
-
-    g = localStorage.getItem('ramas');
-    if (g == null) {
-
-        var arreglo2 = {
-            'screens': [],
-            'state': true
-        };
-        localStorage.setItem('ramas', JSON.stringify(arreglo2));
-    }
-
-
-}
-
-
-
-function mostrar_comentarios_Locales() {
-    var item;
-    if (enGrupo)
-        item = 'grupos';
-    else
-        item = 'ramas';
-    var g = localStorage.getItem(item);
-    if (g != null) {
-        var restoredSession = JSON.parse(g);
-        $.each(restoredSession.screens, function (index, comentarios) {
-            if (codigo == comentarios.codigo) {
-                mostrarComentariosAgregado(comentarios.nombre, comentarios.comentario, comentarios.fecha, comentarios.hora);
-            }
-        });
-    }
-}
 
 
 function visualizarPanel_NuevoCometario(){
+      S('#coment').empty();
       $('#panel-nuevoComentario').show();
+
 
 }
