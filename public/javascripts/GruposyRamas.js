@@ -156,7 +156,7 @@ function mostrarInfoGrupo(nombre_cod) {
             $("#comments-list").empty();
 
 
-
+            habilitarComentario();
              if(comentarioGrupos.isEmpty==0){
                     $("#Titulo_Comentario").append($("<h3></h3>").text("Todavia no hay comentarios. Se el primero en comentar!"));
                 }
@@ -169,6 +169,26 @@ function mostrarInfoGrupo(nombre_cod) {
         }
     });
 
+}
+
+
+function habilitarComentario(){
+  FB.getLoginStatus(function(response){
+  if(response.status=='connected') {
+    $('#filtroTag').empty();
+    $('#filtroTag').append('conectado');
+
+    $('#warningComentario').hide();
+    $('#nuevoComentario').prop('disabled', true);
+  }
+  else {
+    $('#filtroTag').empty();
+    $('#filtroTag').append('desconectado');
+
+      $('#warningComentario').show();
+      $('#nuevoComentario').prop('disabled', false);
+  }
+  });
 }
 
 function mostrarComentarios(comentario) {
@@ -222,6 +242,7 @@ function mostrarInfoRama(num) {
                 $("#Titulo_Comentario").append("Comentarios de la rama:");
                 $("#comments-list").empty();
 
+                habilitarComentario();
                 if(comentarioRama.isEmpty==0){
                     $("#Titulo_Comentario").append($("<h3></h3>").text("Todavia no hay comentarios. Se el primero en comentar!"));
                 }
@@ -395,4 +416,5 @@ function mostrar_comentarios_Locales() {
 
 function visualizarPanel_NuevoCometario(){
       $('#panel-nuevoComentario').show();
+
 }
