@@ -158,7 +158,7 @@ function mostrarInfoGrupo(nombre_cod) {
 
 
             habilitarComentario();
-             if(comentarioGrupos.isEmpty()){
+             if(isEmpty(comentarioGrupos)){
                     $("#Titulo_Comentario").append($("<h3></h3>").text("Todavia no hay comentarios. Se el primero en comentar!"));
                 }
             //Cargamos comentarios de cada uno de los grupos
@@ -171,8 +171,9 @@ function mostrarInfoGrupo(nombre_cod) {
     });
 
 }
-
-
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
 function habilitarComentario(){
   FB.getLoginStatus(function(response){
   if(response.status=='connected') {
@@ -238,7 +239,7 @@ function mostrarInfoRama(num) {
                 $("#comments-list").empty();
 
                 habilitarComentario();
-                if(comentarioRama.isEmpty==0){
+                if(isEmpty(comentarioGrupos)){
                     $("#Titulo_Comentario").append($("<h3></h3>").text("Todavia no hay comentarios. Se el primero en comentar!"));
                 }
                 //Cargamos comentarios de cada uno de las ramas

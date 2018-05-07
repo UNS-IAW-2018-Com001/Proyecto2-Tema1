@@ -42,7 +42,7 @@ function agregarLugarAlMapa(posicion, titulo, codigo, etiqueta, color = "") {
     marker.addListener('click', function () {
         mostrarInfoGrupo(codigo);
     });
-    bounds.extend(markers.getPosition());
+    bounds.extend(marker.getPosition());
     map.setCenter(posicion);
 }
 function cargarPosicionActual() {
