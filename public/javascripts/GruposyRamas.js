@@ -190,9 +190,13 @@ function habilitarComentario(){
 }
 
 function mostrarComentarios(comentario) {
+  var img;
+  if(comentario.imagen=="undefined")img= "/images/avatar.png";
+  else img=comentario.imagen;
+
     $("#comments-list").append("<li>" +
             "<div class=\"comment-main-level\">" +
-            "<div class=\"comment-avatar\"><img src=\""+comentario.imagen+"\" alt=\"\"></div>" +
+            "<div class=\"comment-avatar\"><img src=\""+img+"\" alt=\"\"></div>" +
             "<div class=\"comment-box\">" +
             "<div class=\"comment-head\">" +
             "<h6 class=\"comment-name \">" +
