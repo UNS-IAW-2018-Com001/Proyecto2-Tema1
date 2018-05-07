@@ -13,6 +13,11 @@ function cargarArchivoCSS(){
 
 function cambiarArchivoCss(archivo) {
     document.getElementById('cssArchivo').href = archivo;
-    var elemento_nuevo={idUser:dataUser.id,css:archivo}
-    guardar('./api/preferenciasUsuarios',elemento_nuevo);;
+    var elemento_nuevo={idUser:dataUser.id,css:archivo};
+    guardar('./api/preferenciasUsuarios',elemento_nuevo);
+}
+function guadarCSSActual(){
+    var archivo=document.getElementById('cssArchivo').href;
+    var elemento_nuevo={idUser:dataUser.id,css:archivo};
+    guardar('./api/preferenciasUsuarios',elemento_nuevo);
 }
