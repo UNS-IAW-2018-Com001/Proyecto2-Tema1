@@ -41,3 +41,4 @@ require('./filtros');
 require('./grupos');
 require('./ramas');
 require('./comentarios');
+require('./preferenciasUsuario');

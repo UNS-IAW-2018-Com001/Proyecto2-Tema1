@@ -13,10 +13,6 @@ const getComentarios = function(req, res){
 
 const postComentarios=function(req,res){
   Comentario.collection.insert([req.body.elemento],onInsert);
-  /*Comentario.updateOne({id: req.body.comentario.id}, {$set: req.body.comentario}, function(err, res) {
-      if (err) throw err;
-  });
-  res.send(req.body);*/
 };
 
 function onInsert(err, docs){
