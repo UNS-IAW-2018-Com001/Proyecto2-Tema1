@@ -337,7 +337,7 @@ function guardar(comentario_nuevo) {
     	contentType: "application/json",
     	dataType: "json",
 	    success: function(data){
-	        alert("hola");
+	        alert("hola "+JSON.stringify(data));
 	    }
 	});
 }
