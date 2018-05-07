@@ -11,9 +11,9 @@ const getPreferencias=function(req,res){
 
 const postPreferencias=function(req,res){
   //preferencia.remove({"idUser":req.body.elemento.idUser},function (err){});
-  //preferencia.collection.insert([req.body.elemento],onInsert);
+  preferencia.collection.insert([req.body.elemento],onInsert);
   //res.status(200).jsonp(req.body.elemento);
-  
+
   res.send(req.body.elemento);
 };
 
