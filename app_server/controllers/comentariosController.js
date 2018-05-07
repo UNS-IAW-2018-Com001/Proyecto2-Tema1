@@ -12,9 +12,9 @@ const getComentarios = function(req, res){
 };
 
 const postComentarios=function(req,res){
-  Comentario.updateOne({id: req.body.id}, {$set: req.body}, function(err, res) {
+/*  Comentario.updateOne({id: req.body.id}, {$set: req.body}, function(err, res) {
       if (err) throw err;
-  });
+  });*/
   res.send(req.body);
 };
 
