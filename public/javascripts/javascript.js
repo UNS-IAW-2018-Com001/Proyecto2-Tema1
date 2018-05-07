@@ -14,5 +14,5 @@ function cargarArchivoCSS(){
 function cambiarArchivoCss(archivo) {
     document.getElementById('cssArchivo').href = archivo;
     var elemento_nuevo={idUser:dataUser.id,css:archivo}
-    guardar('./api/css',elemento_nuevo);;
+    guardar('./api/preferenciasUsuarios',elemento_nuevo);;
 }
