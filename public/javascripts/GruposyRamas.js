@@ -333,7 +333,7 @@ function guardar(comentario_nuevo) {
 	$.ajax({
 	    url: './api/comentarios',
 	    type: 'POST',
-	    data: JSON.stringify({comentario: JSON.parse(comentario_nuevo)}),
+	    data: JSON.stringify({comentario: comentario_nuevo}),
     	contentType: "application/json",
     	dataType: "json",
 	    success: function(data){
