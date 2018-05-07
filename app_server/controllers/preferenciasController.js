@@ -4,12 +4,13 @@ const preferencia = mongoose.model('preferenciasUsuario');
 const getPreferencias=function(req,res){
   var id_usuario=req.param("user_id");
   preferencia.find({"idUser":id_usuario}).exec((err, preferencia) => {
-    res.status(200).jsonp(preferencia);
+    res.status(200).jsonp({existe:"true",stylesheet:preferencia.css});
   })
 };
 
 const postPreferencias=function(req,res){
-  Comentario.collection.insert([req.body.elemento],onInsert);
+  preferencia.remove({"idUser":req.body.elemento.idUser},function (err){});
+  preferencia.collection.insert([req.body.elemento],onInsert);
 };
 
 function onInsert(err, docs){
