@@ -4,9 +4,8 @@ const preferencia = mongoose.model('preferenciasUsuario');
 const getPreferencias=function(req,res){
   var id_usuario=req.param("user_id");
   preferencia.find({"idUser":id_usuario}).exec((err, preferencia) => {
-    res.status(200).jsonp({stylesheet:preferencia.css});
+  res.status(200).jsonp({stylesheet:preferencia.css});
   })
-  res.send("noesta")
 };
 
 const postPreferencias=function(req,res){
