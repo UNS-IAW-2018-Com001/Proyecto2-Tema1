@@ -321,23 +321,23 @@ function enviarComentario(){
     var Hora = f.getHours() + ":" + f.getMinutes();
 
     var Nuevo_comentario =   {id: nick, perteneciente: codigo, texto: comentario, fecha: Fecha, horario: Hora, imagen: Imagen};
-
-    $.post('./api/comentarios',data=Nuevo_comentario, dataType=json);
-  //guardar( Nuevo_comentario);
+    var Json_comment= JSON.parse(jsonString);
+    //$.post('./api/comentarios',data=Nuevo_comentario, dataType=json);
+  guardar( Nuevo_comentario);
 
     mostrarComentariosAgregado(nick, comentario, Fecha, Hora);
 }
 
-function guardar(comentario) {
-	const jsonString = JSON.stringify(Array.from(comentario.values()));
+function guardar(comentario_nuevo) {
+	//const jsonString = JSON.stringify(Array.from(comentario.values()));
 	$.ajax({
 	    url: './api/comentarios',
 	    type: 'POST',
-	    data: JSON.stringify({comentario: JSON.parse(jsonString)}),
+	    data: JSON.stringify({comentario: JSON.parse(comentario_nuevo)}),
     	contentType: "application/json",
     	dataType: "json",
 	    success: function(data){
-	        callback((data != undefined) ? new Set(data) : new Set());
+	        alert("hola");
 	    }
 	});
 }
