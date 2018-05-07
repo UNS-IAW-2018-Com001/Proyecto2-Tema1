@@ -12,11 +12,19 @@ const getComentarios = function(req, res){
 };
 
 const postComentarios=function(req,res){
-  Comentario.updateOne({id: req.body.comentario.id}, {$set: req.body.comentario}, function(err, res) {
+  Comentario.collection.insert([req.body.comentario],onInsert);
+  /*Comentario.updateOne({id: req.body.comentario.id}, {$set: req.body.comentario}, function(err, res) {
       if (err) throw err;
   });
-  res.send(req.body);
+  res.send(req.body);*/
 };
+
+function onInsert(err, docs){
+    if (err) throw err;
+    else {
+      console.info('%d success !!!! .',docs.length);
+    }
+}
 
 
 module.exports = {
