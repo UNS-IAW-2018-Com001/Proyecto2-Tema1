@@ -322,7 +322,8 @@ function enviarComentario(){
 
     var Nuevo_comentario =   {id: nick, perteneciente: codigo, texto: comentario, fecha: Fecha, horario: Hora, imagen: Imagen};
 
-  guardar( Nuevo_comentario);
+    $post('./api/comentarios',Nuevo_comentario);
+  //guardar( Nuevo_comentario);
 
     mostrarComentariosAgregado(nick, comentario, fecha, hora);
 }
