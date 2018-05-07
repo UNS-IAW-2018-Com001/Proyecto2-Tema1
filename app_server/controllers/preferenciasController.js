@@ -10,7 +10,7 @@ const getPreferencias=function(req,res){
 
 
 const postPreferencias=function(req,res){
-  preferencia.update({idUser: req.body.elemento.id}, {css: req.body.elemento.css},
+  preferencia.update({idUser: req.body.elemento.idUser}, {css: req.body.elemento.css},
   			{upsert: true, setDefaultsOnInsert: true}, (err, pedido) => {
   				if (err) {
   					res
