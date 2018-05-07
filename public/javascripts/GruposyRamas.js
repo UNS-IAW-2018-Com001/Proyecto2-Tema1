@@ -50,7 +50,9 @@ $.ajax({
         if (response && response.status == 'connected') {
           FB.api('/me', function(response) {
             dataUser=response;
+            $("#filtros").append("<h1>Antes de guardar- estas identificado"+dataUser.name+"</h1>");
             guadarCSSActual();
+            $("#filtros").append("<h1>Despues de guardar- estas identificado"+dataUser.name+"</h1>");
           });
         }else
             dataUser=null;
