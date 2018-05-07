@@ -6,6 +6,7 @@ const getPreferencias=function(req,res){
   preferencia.find({"idUser":id_usuario}).exec((err, preferencia) => {
     res.status(200).jsonp({stylesheet:preferencia.css});
   })
+  res.send("noesta")
 };
 
 const postPreferencias=function(req,res){
