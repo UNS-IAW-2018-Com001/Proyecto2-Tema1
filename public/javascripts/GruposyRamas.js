@@ -321,7 +321,7 @@ function enviarComentario(){
     var Hora = f.getHours() + ":" + f.getMinutes();
 
     var Nuevo_comentario =   {id: nick, perteneciente: codigo, texto: comentario, fecha: Fecha, horario: Hora, imagen: Imagen};
-    var Json_comment= JSON.parse(jsonString);
+    //var Json_comment= JSON.parse(jsonString);
     //$.post('./api/comentarios',data=Nuevo_comentario, dataType=json);
   guardar( Nuevo_comentario);
 
