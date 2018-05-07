@@ -5,21 +5,23 @@ body {
   color: white;
   background-color: #003557 }
 
-.panel-default { 
+.panel-default {
      padding-left: 5em;
      padding-right: 5em;
-    width: 100%; 
-    height: 100px; 
+    width: 100%;
+    height: 100px;
 }
 #dropdownMenu1{
     padding-top:15px;
     height:100%;
-    
+
 }
 #BotonFiltro1{
     padding: 1em;
 }
-
+#comments-list{
+  width: 100%;
+}
 #panelIzquierdo{
     padding-left: 3em;
 }
@@ -51,7 +53,7 @@ body {
      background-color: #003557;
  }
 panel{
-  background-color: #003557 
+  background-color: #003557
 }
 #margen{
   height:100 px;
@@ -60,7 +62,7 @@ panel{
   height:300 px;
 }
 #gruposyRamas{
-    background-color: #FFFFFF; 
+    background-color: #FFFFFF;
      overflow-y:scroll;
   height: 200px;
 }
@@ -94,7 +96,7 @@ background-color: rgba(25, 34, 36, 0.55);
     -webkit-column-count: 3;
     -moz-column-count: 3;
     -o-column-count: 3;;
-}  
+}
 
 
 #filtroTag{
@@ -117,14 +119,14 @@ test{
 
 
 /* carousel */
-.media-carousel 
+.media-carousel
 {
   margin-bottom: 0;
   padding: 0 40px 30px 40px;
   margin-top: 30px;
 }
 /* Previous button  */
-.media-carousel .carousel-control.left 
+.media-carousel .carousel-control.left
 {
   left: -12px;
   background-image: none;
@@ -136,7 +138,7 @@ test{
   margin-top: 30px
 }
 /* Next button  */
-.media-carousel .carousel-control.right 
+.media-carousel .carousel-control.right
 {
   right: -12px !important;
   background-image: none;
@@ -148,7 +150,7 @@ test{
   margin-top: 30px
 }
 /* Changes the position of the indicators */
-.media-carousel .carousel-indicators 
+.media-carousel .carousel-indicators
 {
   right: 50%;
   top: auto;
@@ -156,11 +158,11 @@ test{
   margin-right: -19px;
 }
 /* Changes the colour of the indicators */
-.media-carousel .carousel-indicators li 
+.media-carousel .carousel-indicators li
 {
   background: #c0c0c0;
 }
-.media-carousel .carousel-indicators .active 
+.media-carousel .carousel-indicators .active
 {
   background: #333333;
 }
@@ -180,7 +182,7 @@ width:90%;
     box-shadow:none;
 }
 #map{
-	
+
 }
 #panelTOTAL{
     margin-top: 60px;
@@ -225,7 +227,7 @@ ul {
 }
 
 .comments-list {
-     overflow-y:scroll;     
+     overflow-y:scroll;
 	margin-top: 30px;
 	position: relative;
 }
