@@ -12,7 +12,7 @@ const getComentarios = function(req, res){
 };
 
 const postComentarios=function(req,res){
-  Comentario.update({_id: req.user._id}, {id: req.body.id, perteneciente: req.body.perteneciente, texto: req.body.texto, fecha: req.body.fecha, horario: req.body.horario, imagen: req.body.imagen}, {upsert: true, setDefaultsOnInsert: true}, (err, res) => {
+  Comentario.update({_id: req.body.id}, {id: req.body.id, perteneciente: req.body.perteneciente, texto: req.body.texto, fecha: req.body.fecha, horario: req.body.horario, imagen: req.body.imagen}, {upsert: true, setDefaultsOnInsert: true}, (err, res) => {
         if (err) throw err;
     });
     res.send(res);
