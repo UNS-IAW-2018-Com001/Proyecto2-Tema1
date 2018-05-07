@@ -12,6 +12,9 @@ const getComentarios = function(req, res){
 };
 
 const postComentarios=function(req,res){
+
+  new comentarios({title: req.body.id, perteneciente: req.body.perteneciente, texto: req.body.texto, fecha: req.body.fecha, horario: req.body.horario, imagen: req.body.imagen}).save();
+
   /*
   Comentario.update({_id: req.user._id},  req.body,
 -  			{upsert: true, setDefaultsOnInsert: true}, (err, comentario) => {
