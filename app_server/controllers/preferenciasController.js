@@ -3,8 +3,8 @@ const preferencia = mongoose.model('preferenciasUsuario');
 
 const getPreferencias=function(req,res){
   var id_usuario=req.param("user_id");
-  preferencia.find({"idUser":id_usuario}).exec((err, preferencia) => {
-    if(err){
+  preferencia.findOne({"idUser":id_usuario}).exec((err, preferencia) => {
+    if(preferencia==null){
       res.status(400).json(err);
     }
     else{
@@ -21,7 +21,7 @@ const postPreferencias=function(req,res){
   				if (err) {
   					res.status(400).json(err);
   	        	} else {
-  					res.status(201).json(pedido);
+  					res.status(200).json(pedido);
   				}
   			})
 };
