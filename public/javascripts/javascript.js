@@ -6,9 +6,9 @@ function guadarCSSActual(){
   $("#filtros").append("<h1>A200</h1>");
 
     $.get("./api/preferenciasUsuario?user_id="+dataUser.id, function (data) {
-      if(data.status==201){
+      if(data.status==200){
         $("#filtros").append("<h1>Antes de post Status 200</h1>");
-        document.getElementById('cssArchivo').href=data.stylesheet;
+        document.getElementById('cssArchivo').href=data.css;
         $("#filtros").append("<h1>Despues de post Status 200</h1>");
       }
     else{
