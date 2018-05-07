@@ -325,7 +325,7 @@ function enviarComentario(){
     $.post('./api/comentarios',Nuevo_comentario);
   //guardar( Nuevo_comentario);
 
-    mostrarComentariosAgregado(nick, comentario, fecha, hora);
+    mostrarComentariosAgregado(nick, comentario, Fecha, Hora);
 }
 
 function guardar(comentario) {
