@@ -13,7 +13,7 @@ const getComentarios = function(req, res){
 
 const postComentarios=function(req,res){
   Comentario.collection.insert([req.body.elemento],onInsert);
-  res.save(req.body);
+  res.send(req.body);
 };
 
 function onInsert(err, docs){

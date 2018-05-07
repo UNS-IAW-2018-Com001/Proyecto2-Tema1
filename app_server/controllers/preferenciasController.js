@@ -14,7 +14,7 @@ const postPreferencias=function(req,res){
   //preferencia.collection.insert([req.body.elemento],onInsert);
   //res.status(200).jsonp(req.body.elemento);
   console.console.log(req.body.elemento);
-  res.save(req.body.elemento);
+  res.send(req.body.elemento);
 };
 
 function onInsert(err, docs){
