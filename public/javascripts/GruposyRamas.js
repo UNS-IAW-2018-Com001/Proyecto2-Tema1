@@ -252,7 +252,7 @@ function mostrarInfoRama(num) {
                 $.each(comentarioRama, function (index, comentario) {
                     mostrarComentarios(comentario);
                 });
-              
+
 
             }
 
@@ -375,7 +375,7 @@ function mostrarComentariosAgregado(nick, comentario, fecha, hora, imagen ) {
 
 
 function visualizarPanel_NuevoCometario(){
-      S('#coment').empty();
+      $("#coment").empty();
       $('#panel-nuevoComentario').show();
 
 
