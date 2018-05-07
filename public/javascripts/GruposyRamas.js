@@ -145,6 +145,7 @@ function mostrarInfoGrupo(nombre_cod) {
             $("#boddy2").append($("<dd></dd>").text(grupo.religion));
 
             centrarMapa(grupo.ubicacion.coords[0],grupo.ubicacion.coords[01]);
+            map.setZoom(15);
             crearGaleria(obtenerImagenesGrupo(nombre_cod));
 
              $("#Panel_Titulo").empty();
