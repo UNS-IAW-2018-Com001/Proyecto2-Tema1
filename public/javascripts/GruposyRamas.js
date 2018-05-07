@@ -3,8 +3,7 @@ var ramas;
 var codigo;
 var enGrupo;
 var comentarioGrupos;
-var
-;
+var comentarioRama;
 var dataUser;
 
 
