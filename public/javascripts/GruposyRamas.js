@@ -49,8 +49,8 @@ $.ajax({
         habilitarComentario();
         if (response && response.status == 'connected') {
           FB.api('/me', function(response) {
-            alert('datos: ' + JSON.stringify(response));
             dataUser=response;
+            guadarCSSActual();
           });
         }else
             dataUser=null;
