@@ -314,13 +314,13 @@ function enviarComentario(){
 
     $('#panel-nuevoComentario').hide();
     var nick = dataUser.name;
-    var imagen= dataUser.picture;
+    var Imagen= dataUser.picture;
     var comentario = $("#coment").val();
     var f = new Date();
-    var fecha = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
-    var hora = f.getHours() + ":" + f.getMinutes();
+    var Fecha = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
+    var Hora = f.getHours() + ":" + f.getMinutes();
 
-    var Nuevo_comentario =   {"id": nick, "perteneciente": codigo, "texto": comentario, "fecha": fecha, "horario": hora, "imagen": imagen};
+    var Nuevo_comentario =   {id: nick, perteneciente: codigo, texto: comentario, fecha: Fecha, horario: Hora, imagen: Imagen};
 
   guardar( Nuevo_comentario);
 
