@@ -67,7 +67,7 @@ function centrarMapa(lat,long){
 function centrarLugares(){
     map.setCenter(bounds.getCenter());
     map.fitBounds(bounds);
-    map.setZoom(map.getZoom()-1);
+    map.setZoom(map.getZoom());
     if(map.getZoom()> 15){
       map.setZoom(15);
     }

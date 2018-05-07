@@ -36,6 +36,10 @@ body {
     border-width:0px;
     box-shadow:none;
 }
+
+#centrado{
+   width: 100%;
+}
  #map {
    width: 100%;
    height: 400px;
