@@ -10,5 +10,7 @@ router.get('/api/grupos', ctrlGrupos.getGrupos);
 router.get('/api/ramas', ctrlRamas.getRamas);
 router.get('/api/comentarios', ctrlComentarios.getComentarios);
 
+router.post("/api/comentarios", ctrlComentarios.postComentarios);
+
 
 module.exports = router;

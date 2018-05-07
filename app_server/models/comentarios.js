@@ -20,8 +20,10 @@ const ComentarioSchema = new mongoose.Schema({
           horario: {
             type: String,
             required: true
-        }
-
+        },
+        imagen: {
+          type: String          
+      }
         });
 
 mongoose.model('comentarios', ComentarioSchema);

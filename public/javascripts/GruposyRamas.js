@@ -46,6 +46,7 @@ $.ajax({
         xfbml: true
       });
       FB.Event.subscribe('auth.authResponseChange', function(response) {
+        habilitarComentario();
         if (response && response.status == 'connected') {
           FB.api('/me', function(response) {
             alert('datos: ' + response);
@@ -313,13 +314,16 @@ function obtenerImagenesRama(num) {
 function enviarComentario(){
 
     $('#panel-nuevoComentario').hide();
-    var nick = $("#Nombre").val();
+    var nick = dataUser.name();
+    var imagen= dataUser.picture();
     var comentario = $("#coment").val();
-
     var f = new Date();
     var fecha = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
     var hora = f.getHours() + ":" + f.getMinutes();
-    guardarComentario(comentario, fecha, hora);
+
+    var Nuevo_comentario =   {"id": nick, "perteneciente": codigo, "texto": comentario, "fecha": fecha, "horario": hora, "imagen": imagen};
+    $.post("/api/comentarios", Nuevo_comentario);
+
     mostrarComentariosAgregado(nick, comentario, fecha, hora);
 }
 
@@ -373,22 +377,7 @@ function inicializarAlmacenamiento_local() {
 
 }
 
-function guardarComentario(nick, comentario, fecha, hora) {
 
-    var item_Name;
-    if (enGrupo)
-        item_Name = 'grupos';
-    else
-        item_Name = 'ramas';
-    var nuevosComentarios = JSON.parse(localStorage.getItem(item_Name));
-
-    if (nuevosComentarios != null && dataUser!=null) {
-
-        nuevosComentarios.screens.push({'nombre': dataUser.name, 'codigo': codigo, 'comentario': comentario, 'fecha': fecha, 'hora': hora});
-        localStorage.setItem(item_Name, JSON.stringify(nuevosComentarios));
-
-    }
-}
 
 function mostrar_comentarios_Locales() {
     var item;
