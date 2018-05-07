@@ -319,7 +319,7 @@ function enviarComentario(){
 
     $('#panel-nuevoComentario').hide();
     var nick = dataUser.name;
-    var Imagen= dataUser.picture;
+    var Imagen= "graph.facebook.com/"+dataUser.id+"/picture?type=normal";
     var comentario = $("#coment").val();
     var f = new Date();
     var Fecha = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
