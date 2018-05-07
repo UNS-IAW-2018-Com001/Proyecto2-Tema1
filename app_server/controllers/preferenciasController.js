@@ -4,7 +4,7 @@ const preferencia = mongoose.model('preferenciasUsuario');
 const getPreferencias=function(req,res){
   var id_usuario=req.param("user_id");
   preferencia.findOne({"idUser":id_usuario}).exec((err, preferencia) => {
-      res.send(preferencia);
+      res.status(200).json(preferencia);
   })
 };
 
