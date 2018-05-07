@@ -40,7 +40,6 @@ function agregarLugarAlMapa(posicion, titulo, codigo, etiqueta, color = "") {
     marker.setMap(map);
     marker.setIcon("https://mt.google.com/vt/icon?name=icons/spotlight/spotlight-waypoint-b" + color + ".png");
     marker.addListener('click', function () {
-
       cargarComentarioGrupo(codigo);
       mostrarRama(codigo);
     });

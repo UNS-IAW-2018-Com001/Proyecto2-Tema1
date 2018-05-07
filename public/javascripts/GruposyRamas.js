@@ -320,6 +320,7 @@ function enviarComentario(){
     var hora = f.getHours() + ":" + f.getMinutes();
 
     var Nuevo_comentario =   {"id": nick, "perteneciente": codigo, "texto": comentario, "fecha": fecha, "horario": hora, "imagen": imagen};
+
     $.post("/api/comentarios", Nuevo_comentario);
 
     mostrarComentariosAgregado(nick, comentario, fecha, hora);
