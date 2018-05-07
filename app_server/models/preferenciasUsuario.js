@@ -12,4 +12,4 @@ const preferenciasSchema = new mongoose.Schema({
 
         });
 
-        mongoose.model('preferenciasUsuario', preferenciasSchema);
+mongoose.model('preferenciasUsuario', preferenciasSchema);

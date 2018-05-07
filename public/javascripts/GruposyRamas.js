@@ -50,7 +50,7 @@ $.ajax({
         if (response && response.status == 'connected') {
           FB.api('/me', function(response) {
             dataUser=response;
-            
+
             guadarCSSActual();
           });
         }else
@@ -339,6 +339,9 @@ function guardar(ruta,elemento_nuevo) {
     	dataType: "json",
 	    success: function(data){
 	        alert("hola "+JSON.stringify(data));
+	    },
+      error:function(data){
+	        alert("error "+JSON.stringify(data));
 	    }
 	});
 }
