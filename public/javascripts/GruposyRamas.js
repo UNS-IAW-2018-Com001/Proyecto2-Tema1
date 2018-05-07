@@ -338,7 +338,7 @@ function guardar(ruta,elemento_nuevo) {
     	contentType: "application/json",
     	dataType: "json",
 	    success: function(data){
-	        alert("hola "+JSON.stringify(data));
+	        alert("hola "+JSON.stringify(data.status));
 	    },
       error:function(data){
 	        alert("error "+JSON.stringify(data));
