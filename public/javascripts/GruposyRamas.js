@@ -192,7 +192,7 @@ function habilitarComentario(){
 function mostrarComentarios(comentario) {
     $("#comments-list").append("<li>" +
             "<div class=\"comment-main-level\">" +
-            "<div class=\"comment-avatar\"><img src=\"images/avatar.png\" alt=\"\"></div>" +
+            "<div class=\"comment-avatar\"><img src=\""+comentario.imagen+"\" alt=\"\"></div>" +
             "<div class=\"comment-box\">" +
             "<div class=\"comment-head\">" +
             "<h6 class=\"comment-name \">" +
@@ -326,7 +326,7 @@ function enviarComentario(){
     //$.post('./api/comentarios',data=Nuevo_comentario, dataType=json);
   guardar('./api/comentarios', Nuevo_comentario);
 
-    mostrarComentariosAgregado(nick, comentario, Fecha, Hora);
+    mostrarComentariosAgregado(nick, comentario, Fecha, Hora, Imagen);
 }
 
 function guardar(ruta,elemento_nuevo) {
@@ -343,11 +343,11 @@ function guardar(ruta,elemento_nuevo) {
 }
 
 
-function mostrarComentariosAgregado(nick, comentario, fecha, hora) {
+function mostrarComentariosAgregado(nick, comentario, fecha, hora, imagen ) {
 
     $("#comments-list").prepend("<li>" +
             "<div class=\"comment-main-level\">" +
-            "<div class=\"comment-avatar\"><img src=\"images/avatar.png\" alt=\"\"></div>" +
+            "<div class=\"comment-avatar\"><img src=\""+imagen+"\" alt=\"\"></div>" +
             "<div class=\"comment-box\">" +
             "<div class=\"comment-head\">" +
             "<h6 class=\"comment-name \">" +
