@@ -323,17 +323,17 @@ function enviarComentario(){
     var Nuevo_comentario =   {id: nick, perteneciente: codigo, texto: comentario, fecha: Fecha, horario: Hora, imagen: Imagen};
     //var Json_comment= JSON.parse(jsonString);
     //$.post('./api/comentarios',data=Nuevo_comentario, dataType=json);
-  guardar( Nuevo_comentario);
+  guardar('./api/comentarios', Nuevo_comentario);
 
     mostrarComentariosAgregado(nick, comentario, Fecha, Hora);
 }
 
-function guardar(comentario_nuevo) {
+function guardar(ruta,elemento_nuevo) {
 	//const jsonString = JSON.stringify(Array.from(comentario.values()));
 	$.ajax({
-	    url: './api/comentarios',
+	    url: ruta,
 	    type: 'POST',
-	    data: JSON.stringify({comentario: comentario_nuevo}),
+	    data: JSON.stringify({elemento: elemento_nuevo}),
     	contentType: "application/json",
     	dataType: "json",
 	    success: function(data){
