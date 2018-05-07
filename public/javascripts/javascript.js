@@ -1,6 +1,6 @@
 
 function cargarArchivoCSS(){
-    $.get("./api/preferenciasUsuarios", function (data) {
+    $.get("./api/preferenciasUsuarios?user_id="+dataUser.id, function (data) {
        if(data.existe="true"){
             document.getElementById('cssArchivo').href=data.stylesheets;
        }else{
