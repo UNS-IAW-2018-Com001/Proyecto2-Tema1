@@ -175,18 +175,12 @@ function mostrarInfoGrupo(nombre_cod) {
 function habilitarComentario(){
   FB.getLoginStatus(function(response){
   if(response.status=='connected') {
-    $('#filtroTag').empty();
-    $('#filtroTag').append('conectado');
-
     $('#warningComentario').hide();
-    $('#nuevoComentario').prop('disabled', true);
+    $('#nuevoComentario').prop('disabled', false);
   }
   else {
-    $('#filtroTag').empty();
-    $('#filtroTag').append('desconectado');
-
       $('#warningComentario').show();
-      $('#nuevoComentario').prop('disabled', false);
+      $('#nuevoComentario').prop('disabled', true);
   }
   });
 }
