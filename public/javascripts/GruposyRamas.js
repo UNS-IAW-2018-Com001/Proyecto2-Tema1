@@ -3,7 +3,8 @@ var ramas;
 var codigo;
 var enGrupo;
 var comentarioGrupos;
-var comentarioRama;
+var
+;
 var dataUser;
 
 
@@ -163,6 +164,10 @@ function mostrarInfoGrupo(nombre_cod) {
              if(isEmpty(comentarioGrupos)){
                     $("#Titulo_Comentario").append($("<h3></h3>").text("Todavia no hay comentarios. Se el primero en comentar!"));
                 }
+                else{
+                    $("#Titulo_Comentario").empty();
+                    $("#Titulo_Comentario").append("Comentarios del grupo:");
+                }
             //Cargamos comentarios de cada uno de los grupos
             $.each(comentarioGrupos, function (index, comentario) {
                 mostrarComentarios(comentario);
@@ -245,8 +250,12 @@ function mostrarInfoRama(num) {
                 $("#comments-list").empty();
 
                 habilitarComentario();
-                if(isEmpty(comentarioGrupos)){
+                if(isEmpty(comentarioRama)){
                     $("#Titulo_Comentario").append($("<h3></h3>").text("Todavia no hay comentarios. Se el primero en comentar!"));
+                }
+                else{
+                    $("#Titulo_Comentario").empty();
+                    $("#Titulo_Comentario").append("Comentarios de la rama:");
                 }
                 //Cargamos comentarios de cada uno de las ramas
                 $.each(comentarioRama, function (index, comentario) {
