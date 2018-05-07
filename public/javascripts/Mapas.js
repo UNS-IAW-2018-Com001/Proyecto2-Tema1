@@ -17,7 +17,7 @@ function crearMapa() {
         zoom: 15,
     });
     //directionsDisplay.setMap(map) ;
-    //directionsDisplay.setPanel(document.getElementById('right-panel'));  
+    //directionsDisplay.setPanel(document.getElementById('right-panel'));
 }
 function obtenerLugares() {
     lugares = obtenerLocalizacionGrupos();
@@ -40,7 +40,9 @@ function agregarLugarAlMapa(posicion, titulo, codigo, etiqueta, color = "") {
     marker.setMap(map);
     marker.setIcon("https://mt.google.com/vt/icon?name=icons/spotlight/spotlight-waypoint-b" + color + ".png");
     marker.addListener('click', function () {
-        mostrarInfoGrupo(codigo);
+
+      cargarComentarioGrupo(id_grupo);
+      mostrarRama(id_grupo);
     });
     bounds.extend(marker.getPosition());
     map.setCenter(posicion);
@@ -69,7 +71,7 @@ function centrarLugares(){
     map.setZoom(map.getZoom()-1);
     if(map.getZoom()> 15){
       map.setZoom(15);
-    } 
+    }
 }
 function armarIcono(color) {
     return "http://maps.google.com/mapfiles/ms/icons/" + color + "-dot.png";

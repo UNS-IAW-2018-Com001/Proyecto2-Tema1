@@ -144,7 +144,7 @@ function mostrarInfoGrupo(nombre_cod) {
             $("#boddy2").append("<dt>Religion:</dt>");
             $("#boddy2").append($("<dd></dd>").text(grupo.religion));
 
-          //  centrarMapa(grupo.ubicacion.latitud,grupo.ubicacion.longitud);
+            centrarMapa(grupo.ubicacion.coords[0],grupo.ubicacion.coords[01]);
             crearGaleria(obtenerImagenesGrupo(nombre_cod));
 
              $("#Panel_Titulo").empty();
