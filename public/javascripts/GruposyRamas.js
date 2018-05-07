@@ -158,7 +158,7 @@ function mostrarInfoGrupo(nombre_cod) {
 
 
             habilitarComentario();
-             if(comentarioGrupos.isEmpty==0){
+             if(comentarioGrupos.isEmpty()){
                     $("#Titulo_Comentario").append($("<h3></h3>").text("Todavia no hay comentarios. Se el primero en comentar!"));
                 }
             //Cargamos comentarios de cada uno de los grupos
@@ -268,11 +268,8 @@ function obtenerLocalizacionGrupos() {
         grupoI.push(grupo.nombre);
         grupoI.push(grupo.ubicacion.coords[0]);
         grupoI.push(grupo.ubicacion.coords[1]);
-        grupoI.push(grupo.codigo);
+        grupoI.push(grupo._id);
         retorno.push(grupoI);
-
-        var posicion=new google.maps.LatLng(grupo.ubicacion.coords[0],grupo.ubicacion.coords[1])
-        map.setCenter(posicion);
    });
 
     return retorno;

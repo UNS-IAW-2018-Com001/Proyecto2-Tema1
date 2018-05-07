@@ -1,40 +1,28 @@
 var map, lugares, posicionActual, posicionDestino;
+var bounds;
 var setMarkers;
 function initMap() {
     crearMapa();
     obtenerLugares();
-    cargarPosicionActual();
     cargarLugares();
+    cargarPosicionActual();
     // armarRuta();
-}
-function obtenerLugares() {
-    lugares = obtenerLocalizacionGrupos();
+    centrarLugares();
 }
 function crearMapa() {
     var directionsDisplay = new google.maps.DirectionsRenderer;
     var directionsService = new google.maps.DirectionsService;
+    bounds = new google.maps.LatLngBounds();
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 15,
     });
     //directionsDisplay.setMap(map) ;
     //directionsDisplay.setPanel(document.getElementById('right-panel'));  
 }
-function centrarMapa(lat,long){
-    pos= new google.maps.LatLng(lat, long);
-    map.setCenter(pos);
+function obtenerLugares() {
+    lugares = obtenerLocalizacionGrupos();
 }
-function cargarPosicionActual() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            posicionActual = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-            agregarLugarAlMapa(posicionActual, "Usted esta aquí", 0, "", "lue");
-            map.setCenter(posicionActual);
-        }, function () {});
-    }
-}
+
 function cargarLugares() {
     for (i = 0; i < lugares.length; i++) {
         var posicion = new google.maps.LatLng(lugares[i][1], lugares[i][2]);
@@ -54,7 +42,34 @@ function agregarLugarAlMapa(posicion, titulo, codigo, etiqueta, color = "") {
     marker.addListener('click', function () {
         mostrarInfoGrupo(codigo);
     });
+    bounds.extend(markers.getPosition());
+    map.setCenter(posicion);
+}
+function cargarPosicionActual() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            posicionActual = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            agregarLugarAlMapa(posicionActual, "Usted esta aquí", 0, "", "lue");
 
+            bounds.extend(posicionActual);
+            map.setCenter(posicionActual);
+        }, function () {});
+    }
+}
+function centrarMapa(lat,long){
+    pos= new google.maps.LatLng(lat, long);
+    map.setCenter(pos);
+}
+function centrarLugares(){
+    map.setCenter(bounds.getCenter());
+    map.fitBounds(bounds);
+    map.setZoom(map.getZoom()-1);
+    if(map.getZoom()> 15){
+      map.setZoom(15);
+    } 
 }
 function armarIcono(color) {
     return "http://maps.google.com/mapfiles/ms/icons/" + color + "-dot.png";
