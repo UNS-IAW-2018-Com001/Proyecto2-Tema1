@@ -123,6 +123,12 @@ function mostrarInfoGrupo(nombre_cod) {
             $("#boddy2").append("<dt>Código:</dt>");
             $("#boddy2").append($("<dd></dd>").text(grupo.codigo));
 
+            $("#boddy2").append("<dt>Direccion:</dt>");
+            $("#boddy2").append($("<dd></dd>").text(grupo.ubicacion.calle+" "+grupo.ubicacion.numero));
+
+                      //  $("#boddy2").append("<dt>Direccion:</dt>");
+            $("#boddy2").append($("<dd></dd>").text(grupo.ubicacion.ciudad+" "+grupo.ubicacion.pais));
+
             $("#boddy2").append("<dt>Fecha de creación:</dt>");
             $("#boddy2").append($("<dd></dd>").text(grupo.fecha_Creacion));
 
