@@ -218,7 +218,7 @@ ul {
 .comments-container {
     padding-top: 4em;
 	margin: 60px auto 15px;
-	width: 80%;
+	width: 70%;
 }
 
 .comments-container h1 {
@@ -431,7 +431,9 @@ ul {
     padding-right: 1em;
 }
 
-
+#comments-list{
+  height: 350px;
+}
 /** =====================
  * Responsive
  ========================*/
