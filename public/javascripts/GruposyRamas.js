@@ -17,8 +17,8 @@ $(function () {
 
 $(document).on("click",".Botongrupos", function(){
       var id_grupo= $(this).attr('id');
-        cargarComentarioGrupo(id_grupo);
         mostrarRama(id_grupo);
+        cargarComentarioGrupo(id_grupo);
     });
 
 $(document).on("click",".Botonramas", function(){
