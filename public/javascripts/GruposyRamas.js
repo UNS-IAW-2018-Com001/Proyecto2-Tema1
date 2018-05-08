@@ -205,7 +205,7 @@ function mostrarComentarios(comentario) {
     $("#comments-list").append("<li>" +
             "<div class=\"comment-main-level\">" +
             "<div class=\"comment-avatar\"><img src=\""+img+"\" alt=\"\"></div>" +
-            "<div class=\"comment-box\">" +
+            "<div class=\"comment-box\" id=\"commentbox\">" +
             "<div class=\"comment-head\">" +
             "<h6 class=\"comment-name \">" +
             comentario.id
