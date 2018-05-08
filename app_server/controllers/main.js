@@ -7,7 +7,7 @@ const index = function(req, res) {
 	Filtro.find().exec((err, Filtro) => {
 			Grupo.find().exec((err, Grupo) => {
 				res.render('index', {
-					title: 'Proyecto1-Tema1',
+					title: 'Scouts y Guias en Argentina',
 					filtros: Filtro,
 					grupos: Grupo
 				});
