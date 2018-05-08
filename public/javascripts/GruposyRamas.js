@@ -18,13 +18,11 @@ $(function () {
 $(document).on("click",".Botongrupos", function(){
       var id_grupo= $(this).attr('id');
         cargarComentarioGrupo(id_grupo);
-        mostrarRama(id_grupo);
     });
 
 $(document).on("click",".Botonramas", function(){
       var id_rama= $(this).attr('id');
       cargarComentarioRama(id_rama);
-      mostrarInfoRama(id_rama);
 
     });
 
@@ -67,12 +65,14 @@ $.ajax({
 function cargarComentarioGrupo(nombre_cod) {
   $.get("./api/comentarios?id="+nombre_cod, function (data) {
         comentarioGrupos=data;
+        mostrarRama(id_grupo);
         });
 }
 
 function cargarComentarioRama(nombre_cod) {
   $.get("./api/comentarios?id="+nombre_cod, function (data) {
         comentarioRama=data;
+        mostrarInfoRama(id_rama);
         });
 }
 
