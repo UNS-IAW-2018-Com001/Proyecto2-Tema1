@@ -232,6 +232,8 @@ function mostrarInfoRama(num) {
                 $("#boddy2").empty();
                 $("#boddy2").append("<dt>Nombre rama:</dt>");
                 $("#boddy2").append($("<dd></dd>").text(rama.nombre));
+                $("#boddy2").append("<dt>Tipo:</dt>");
+                $("#boddy2").append($("<dd></dd>").text(rama.tipo));
                 $("#boddy2").append("<dt>Edad minima:</dt>");
                 $("#boddy2").append($("<dd></dd>").text(rama.edad_minima));
                 $("#boddy2").append("<dt>Edad maxima:</dt>");
@@ -240,8 +242,7 @@ function mostrarInfoRama(num) {
                 $("#boddy2").append($("<dd></dd>").text(rama.fechaInscripcion_inicio));
                 $("#boddy2").append("<dt>Fecha cierre inscripcion:</dt>");
                 $("#boddy2").append($("<dd></dd>").text(rama.fechaIscripcion_fin));
-                $("#boddy2").append("<dt>Tipo:</dt>");
-                $("#boddy2").append($("<dd></dd>").text(rama.tipo));
+
                 crearGaleria(obtenerImagenesRama(num));
 
 
