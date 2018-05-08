@@ -91,7 +91,7 @@ function mostrarGrupo() {
 function mostrarRama(nombre_cod) {
    $.get("./api/ramas?id_grupo="+nombre_cod, function (data) {
         ramas=data;
-
+      crearGaleria(obtenerImagenesGrupo(nombre_cod));
       seleccionarTabRama();
         var raw;
         $("#gruposyRamas").empty();
@@ -152,7 +152,6 @@ function mostrarInfoGrupo(nombre_cod) {
 
             centrarMapa(grupo.ubicacion.coords[0],grupo.ubicacion.coords[01]);
             map.setZoom(15);
-            crearGaleria(obtenerImagenesGrupo(nombre_cod));
 
              $("#Panel_Titulo").empty();
              $("#Panel_Titulo").append("Informacion del grupo: "+grupo.nombre);
