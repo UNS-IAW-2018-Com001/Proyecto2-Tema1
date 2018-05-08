@@ -233,11 +233,16 @@ ul {
 }
 
 .comments-list {
-     overflow-y:scroll;
+  overflow-y:scroll;
+  padding-right: 10px;
+  height: :350px;
 	margin-top: 30px;
 	position: relative;
 }
 
+.comment-box{
+  width: 90%;
+}
 /**
  * Lineas / Detalles
  -----------------------*/
