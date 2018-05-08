@@ -65,6 +65,7 @@ $.ajax({
 function cargarComentarioGrupo(nombre_cod) {
   $.get("./api/comentarios?id="+nombre_cod, function (data) {
         comentarioGrupos=data;
+        mostrarInfoGrupo(nombre_cod);
         });
 }
 
@@ -90,7 +91,6 @@ function mostrarGrupo() {
 function mostrarRama(nombre_cod) {
    $.get("./api/ramas?id_grupo="+nombre_cod, function (data) {
         ramas=data;
-        mostrarInfoGrupo(nombre_cod);
 
       seleccionarTabRama();
         var raw;
