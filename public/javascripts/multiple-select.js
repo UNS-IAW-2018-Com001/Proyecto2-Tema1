@@ -165,10 +165,7 @@
         if (this.$el.prop('disabled')) {
             this.$choice.addClass('disabled');
         }
-        this.$parent.css('width',
-            this.options.width ||
-            this.$el.css('width') ||
-            this.$el.outerWidth());
+        this.$parent.css('width',"50%");
 
         this.selectAllName = 'data-name="selectAll' + name + '"';
         this.selectGroupName = 'data-name="selectGroup' + name + '"';
