@@ -3,6 +3,11 @@
         <option value="{{opcion}}">{{opcion}}</option>
       {% endfor %}
     </select>
+    <select class="selectpicker col-md-6" title={{filtro.nombre}}>
+      {% for opcion in filtro.opciones %}
+        <option value="{{opcion}}">{{opcion}}</option>
+      {% endfor %}
+    </select>
     <script>
         $("#{{filtro.nombre}}").multipleSelect({
             single: true,
