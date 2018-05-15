@@ -156,7 +156,7 @@
         // default position is bottom
         this.$drop = $(sprintf('<div class="ms-drop %s"%s></div>',
             this.options.position,
-            sprintf(' style="width: %s"', this.options.dropWidth)));
+            sprintf(' style="width:85%;"')));
 
         this.$el.after(this.$parent);
         this.$parent.append(this.$choice);
