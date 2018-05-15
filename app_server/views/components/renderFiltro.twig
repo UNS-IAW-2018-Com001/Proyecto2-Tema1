@@ -1,4 +1,4 @@
-    <select class="selectpicker col-md-6" title={{filtro.nombre}}>
+    <select class="selectpicker col-md-6" title={{filtro.nombre}} id={{filtro.nombre}}>
       {% for opcion in filtro.opciones %}
         <option value="{{opcion}}">{{opcion}}</option>
       {% endfor %}
