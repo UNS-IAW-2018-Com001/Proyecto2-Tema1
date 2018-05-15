@@ -34,3 +34,7 @@ function filtrar(){
     });
     $("#filtros").append("<h1>"+JSON.stringify(filtrosUsados)+"</h1>");
 }
+$(document).on("click","#botonFiltro", function(){
+        filtrar();
+
+    });

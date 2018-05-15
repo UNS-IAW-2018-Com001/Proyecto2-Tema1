@@ -32,6 +32,7 @@ $(document).on("click","#id_grupo", function(){
         mostrarGrupo();
 
     });
+
 //login facebook
 $.ajax({
         url: '//connect.facebook.net/es_ES/all.js',
