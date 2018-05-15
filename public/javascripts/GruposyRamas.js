@@ -32,6 +32,10 @@ $(document).on("click","#id_grupo", function(){
         mostrarGrupo();
 
     });
+//selects para filtos
+$("select").multipleSelect({
+            single: true
+});
 //login facebook
 $.ajax({
         url: '//connect.facebook.net/es_ES/all.js',
