@@ -50,6 +50,11 @@ body {
  }
 #DivGruposyRamas{
     float: top;
+    margin-top:100px;
+}
+#botonFiltro{
+    margin-left: 15px;
+    margin-top: 5px;
 }
 #id_rama{
 	border-width:1px;
