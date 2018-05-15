@@ -32,7 +32,7 @@ function filtrar(){
             filtrosUsados.push(filtro);   
         }
     });
-    $("#filtros").append("<h1>"+JSON.stringify(filtrosUsados)+"</h1>");
+    $("#filtros").append("<h5>"+JSON.stringify(filtrosUsados)+"</h5>");
 }
 $(document).on("click","#botonFiltro", function(){
         filtrar();
