@@ -12,7 +12,7 @@ function guadarCSSActual(){
       var elemento_nuevo={idUser:dataUser.id,css:archivo};
       guardar('./api/preferenciasUsuario',elemento_nuevo);
     }
-  })
+  });
 }
 
 function cambiarArchivoCss(archivo) {
@@ -25,7 +25,7 @@ function cambiarArchivoCss(archivo) {
     });
 }
 function filtrar(){
-    var filtrosUsados=new Array();
+    var filtrosUsados=[];
     $("#selectsFiltros div button").each(function(){
         if(!$(this).hasClass("bs-placeholder")){
             var filtro= {this.dataset.id:this.title} ;
