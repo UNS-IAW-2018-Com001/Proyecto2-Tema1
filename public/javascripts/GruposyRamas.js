@@ -33,7 +33,7 @@ $(document).on("click","#id_grupo", function(){
 
     });
 //selects para filtos
-$("select").multipleSelect({
+$("#filtros").multipleSelect({
             single: true
 });
 //login facebook
