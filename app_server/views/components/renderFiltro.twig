@@ -1,5 +1,5 @@
-    <select class=".col-md-2" data-size="3" id="filtro" placeholder={{filtro.nombre}}>
+    <select class="selectpicker .col-md-2" title={{filtro.nombre}}>
       {% for opcion in filtro.opciones %}
-        <option value="{{opcion}}">{{opcion}}</option>
+        <option>{{opcion}}</option>
       {% endfor %}
     </select>
