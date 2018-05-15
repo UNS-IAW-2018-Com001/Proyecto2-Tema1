@@ -4,13 +4,13 @@
        {% include "components/navegationBar.twig" %}
        <div class="panel panel-info" id="panelTOTAL">
            <div class="row">
-               <div class="col-md-4" id="panelIzquierdo">
+               <div class="col-md-4 col-xs-12" id="panelIzquierdo">
                    {% include "components/panelDeFitros.twig" %}
                    {% include "components/panelGruposYRamas.twig" %}
                </div>
-               <div class="col-md-8" id="panelDerecho">
-                   <div id="map" class=".col-md-8"></div>
-                   <button type="button" class="btn btn-default .col-md-8" onclick="centrarLugares()" id="centrado">Centrar los grupos del Mapa</button>
+               <div class="col-md-8 col-xs-12" id="panelDerecho">
+                   <div id="map" class="col-xs-12.col-md-8"></div>
+                   <button type="button" class="btn btn-default col-xs-12.col-md-8" onclick="centrarLugares()" id="centrado">Centrar los grupos del Mapa</button>
                </div>
            </div>
            <div class="row" id="margen"><h1>   </h1></div>
