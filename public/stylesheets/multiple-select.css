@@ -6,7 +6,6 @@
     display: inline-block;
     position: relative;
     vertical-align: middle;
-    float: right;
 }
 
 .ms-choice {
@@ -44,16 +43,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: block;
-    padding-left: 20px;
-    padding-right: 20px;
-    text-align: center;
+    padding-left: 8px;
 }
 
 .ms-choice > span.placeholder {
     color: #999;
-    padding-left: 20px;
-    padding-right: 20px;
-    text-align: center;
 }
 
 .ms-choice > div {
