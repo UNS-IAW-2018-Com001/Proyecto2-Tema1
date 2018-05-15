@@ -24,3 +24,13 @@ function cambiarArchivoCss(archivo) {
     }
     });
 }
+function filtrar(){
+    var filtrosUsados=new Array();
+    $("#selectsFiltros div button").each(function(){
+        if(!$(this).hasClass("bs-placeholder")){
+            var filtro= {this.dataset.id:this.title} ;
+            filtrosUsados.push(filtro);   
+        }
+    });
+    $("#filtros").append("<h1>"+JSON.stringify(filtrosUsados)+"</h1>");
+}
