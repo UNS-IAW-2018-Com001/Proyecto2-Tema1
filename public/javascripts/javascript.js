@@ -28,7 +28,7 @@ function filtrar(){
     var filtrosUsados=[];
     $("#selectsFiltros div button").each(function(){
         if(!$(this).hasClass("bs-placeholder")){
-            var filtro= {this.dataset.id:this.title} ;
+            var filtro= {id:this.dataset.id,title: this.title } ;
             filtrosUsados.push(filtro);   
         }
     });
