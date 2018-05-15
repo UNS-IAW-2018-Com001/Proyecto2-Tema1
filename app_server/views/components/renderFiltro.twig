@@ -1,5 +1,11 @@
-    <select class="selectpicker .col-md-2" title={{filtro.nombre}}>
+    <select class=".col-md-2" id={{filtro.nombre}}>
       {% for opcion in filtro.opciones %}
-        <option>{{opcion}}</option>
+        <option value="{{opcion}}">{{opcion}}</option>
       {% endfor %}
     </select>
+    <script>
+        $("#{{filtro.nombre}}").multipleSelect({
+            single: true,
+            placeholder: {{filtro.nombre}}
+        });
+    </script>
