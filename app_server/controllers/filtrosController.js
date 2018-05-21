@@ -32,8 +32,8 @@ const calcularFiltros=function(req,res){
     queryRamas.where('edad_maxima').gte(filtros["Edad"]);
   }
   queryRamas.exec((err, filtroRama) => {
-    var gruposFiltrados=[];
-    var ramasFiltradas=[];  
+    gruposFiltrados=[];
+    ramasFiltradas=[];  
     for(var rama in filtroRama){
       var queryGrupo=Grupo.find({"_id":filtroRama[rama].GrupoPerteneciente});
       if(filtros["Religion"])
@@ -41,14 +41,16 @@ const calcularFiltros=function(req,res){
       queryGrupo.exec((err, grupo) => {
         if(grupo[0]){
           console.log("GrupoNombre:"+grupo[0].nombre+" Grupo:"+grupo);
-        
+          gruposFiltrados.push(grupo);     
         }
       });
     }
+    console.log("gruposFiltrados= "+gruposFiltrados);
     res.status(200).jsonp(filtroRama);
   });
 };
-
+var gruposFiltrados=[];
+var ramasFiltradas=[];  
 module.exports = {
   calcularFiltros
 };
