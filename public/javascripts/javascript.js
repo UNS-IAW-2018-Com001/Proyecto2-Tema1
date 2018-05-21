@@ -24,12 +24,15 @@ function cambiarArchivoCss(archivo) {
     }
     });
 }
+function getId(data){
+  return data.id;
+}
 function filtrar(){
     var mensaje;
     var filtrosUsados=new Object;
     $("#selectsFiltros div button").each(function(){
         if(!$(this).hasClass("bs-placeholder")){
-            filtrosUsados.(this.dataset.id)=this.title;   
+            filtrosUsados.$(getId(this.dataset))=this.title;   
         }
     });
     console.log(filtrosUsados);
