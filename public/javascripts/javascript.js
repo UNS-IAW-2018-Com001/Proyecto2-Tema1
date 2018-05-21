@@ -38,7 +38,7 @@ function filtrar(){
       console.log("aparecere edad?:"+filtrosUsados["Edad"]);
     }
     mensaje=JSON.stringify({filtros: filtrosUsados});
-    getFiltros('./api/comentarios',filtrosUsados);
+    getFiltros('./api/filtros',filtrosUsados);
     return mensaje;
 }
 
