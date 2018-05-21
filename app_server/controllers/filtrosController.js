@@ -34,6 +34,7 @@ const calcularFiltros=function(req,res){
   queryRamas.exec((err, filtroRama) => {
   //  var gruposFiltrados=[];
     var ramasFiltradas=[];
+  /*  
     $.each(filtroRama, function (index, rama) {
       var queryGrupo=Grupo.find({"_id":rama.id_perteneciente});
       if(filtros["Religion"])
@@ -42,8 +43,9 @@ const calcularFiltros=function(req,res){
         ramasFiltradas.push(rama);
 //        gruposFiltrados.push(grupo);
       }
-    });
-    res.status(200).jsonp(ramasFiltradas);
+
+    });*/
+    res.status(200).jsonp(filtroRama);
   });
 };
 
