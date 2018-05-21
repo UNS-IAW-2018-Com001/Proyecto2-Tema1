@@ -432,7 +432,7 @@ ul {
 #comments-list{
   height: 350px;
 }
-.btn-group.bootstrap-select.col-md-5{
+.btn-group.bootstrap-select{
     padding-left: 0px;
     padding-right: 0px;
 }
