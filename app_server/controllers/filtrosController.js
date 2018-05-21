@@ -22,7 +22,7 @@ const calcularFiltros=function(req,res){
 
   var queryRamas=Rama.find();
 
-  
+
   
 
 };
@@ -35,6 +35,5 @@ function onInsert(err, docs){
 
 
 module.exports = {
-  getComentarios,
-  postComentarios
+  calcularFiltros
 };
