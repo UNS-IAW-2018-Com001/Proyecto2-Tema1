@@ -47,8 +47,8 @@ const calcularFiltros=function(req,res){
     //});
     for(var rama in filtroRama){
       var queryGrupo=Grupo.find({"_id":filtroRama[rama].GrupoPerteneciente});
-      //if(filtros["Religion"])
-        //queryGrupo.where('religion').equals(filtros["Religion"]);
+      if(filtros["Religion"])
+        queryGrupo.where('religion').equals(filtros["Religion"]);
       queryGrupo.exec((err, grupo) => {
         console.log("Grupo:"+grupo);
       });
