@@ -41,8 +41,8 @@ const calcularFiltros=function(req,res){
       queryGrupo.exec((err, grupo) => {
         if(grupo){
           console.log("Grupo:"+grupo);
-        if(grupo[0].nombre){
-          console.log("GrupoNmobre:"+grupo);
+        if(grupo[0]){
+          console.log("GrupoNombre:"+grupo[0].nombre+" Grupo:"+grupo);
         }
         }
       });
