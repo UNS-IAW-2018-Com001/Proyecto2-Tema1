@@ -433,7 +433,13 @@ ul {
 #comments-list{
   height: 350px;
 }
-
+.btn-group.bootstrap-select.col-md-5.open{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.btn.dropdown-toggle.btn-default{
+    text-align: center;
+}
 /** =====================
  * Responsive
  ========================*/
@@ -450,3 +456,4 @@ ul {
 		width: 320px;
 	}
 }
+
