@@ -38,7 +38,7 @@ function filtrar(){
       console.log("aparecere edad?:"+filtrosUsados["Edad"]);
     }
     mensaje={filtros: filtrosUsados};
-    return mensaje;
+    return filtrosUsados;
 }
 $(document).on("click","#botonFiltro", function(){
         filtrar();
