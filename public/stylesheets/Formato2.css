@@ -50,7 +50,7 @@ body {
  }
 #DivGruposyRamas{
     float: top;
-    margin-top:100px;
+    margin-top:50px;
 }
 #botonFiltro{
     margin-left: 15px;
@@ -433,7 +433,7 @@ ul {
 #comments-list{
   height: 350px;
 }
-.btn-group.bootstrap-select.col-md-5.open{
+.btn-group.bootstrap-select.col-md-5{
     padding-left: 0px;
     padding-right: 0px;
 }
