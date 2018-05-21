@@ -45,6 +45,7 @@ const calcularFiltros=function(req,res){
     // });
 
     //});
+    console.log("Server: "+filtroRama);
     res.status(200).jsonp(filtroRama);
   });
 };
