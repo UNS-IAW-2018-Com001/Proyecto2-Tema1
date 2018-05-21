@@ -34,17 +34,17 @@ const calcularFiltros=function(req,res){
   queryRamas.exec((err, filtroRama) => {
   //  var gruposFiltrados=[];
     var ramasFiltradas=[];  
-    $.each(filtroRama, function (index, rama) {
-      var queryGrupo=Grupo.find({"_id":rama.GrupoPerteneciente});
+    //$.each(filtroRama, function (index, rama) {
+     // var queryGrupo=Grupo.find({"_id":rama.GrupoPerteneciente});
  //     if(filtros["Religion"])
 //        queryGrupo.where('religion').equals(filtros["Religion"]);
-      queryGrupo.exec((err, grupo) => {
+      //queryGrupo.exec((err, grupo) => {
         //console.log(grupo);
     //    ramasFiltradas.push(rama);
   //      gruposFiltrados.push(grupo);
-     });
+    // });
 
-    });
+    //});
     res.status(200).jsonp(filtroRama);
   });
 };
