@@ -46,7 +46,7 @@ const calcularFiltros=function(req,res){
 
     //});
     for(var rama in filtroRama){
-      console.log("Server: "+rama.nombre);
+      console.log("Server: "+rama);
     }
     res.status(200).jsonp(filtroRama);
   });
