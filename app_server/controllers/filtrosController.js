@@ -17,6 +17,9 @@ const postComentarios=function(req,res){
   res.send(req.body);
 };
 */
+Array.prototype.unique=function(a){
+  return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0
+});
 
 const calcularFiltros=function(req,res){
   var filtros= req.body.filtros;
@@ -29,7 +32,18 @@ const calcularFiltros=function(req,res){
     queryRamas.where('edad_maxima').gte(filtros["Edad"]);
   }
   queryRamas.exec((err, filtroRama) => {
-    res.status(200).jsonp(filtroRama);
+    var gruposFiltrados=[];
+    var ramasFiltradas=[];
+    $.each(filtroRama, function (index, filtro) {
+      var queryGrupo=Grupo.find({"_id":filtroRama.id_perteneciente});
+      if(filtros["Religion"])
+        queryGrupo.where('religion').equals(filtros["Religion"]);
+      queryGrupo.exec((err, filtroGrupo) => {
+        ramasFiltradas.push(filtroRama);
+        gruposFiltrados.push(filtroGrupo);
+      }
+    });
+    res.status(200).jsonp(ramasFiltradas);
   })
 };
 
