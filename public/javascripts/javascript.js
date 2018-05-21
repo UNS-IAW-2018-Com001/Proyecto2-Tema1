@@ -29,7 +29,7 @@ function filtrar(){
     var filtrosUsados=new Object;
     $("#selectsFiltros div button").each(function(){
         if(!$(this).hasClass("bs-placeholder")){
-            filtrosUsados.$(this.dataset.id)=this.title;   
+            filtrosUsados.(this.dataset.id)=this.title;   
         }
     });
     console.log(filtrosUsados);
