@@ -39,7 +39,8 @@ const calcularFiltros=function(req,res){
  //     if(filtros["Religion"])
 //        queryGrupo.where('religion').equals(filtros["Religion"]);
       queryGrupo.exec((err, grupo) => {
-        ramasFiltradas.push(rama);
+        //console.log(grupo);
+    //    ramasFiltradas.push(rama);
   //      gruposFiltrados.push(grupo);
      });
 
