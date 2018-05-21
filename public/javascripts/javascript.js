@@ -31,7 +31,8 @@ function filtrar(){
             filtrosUsados[this.dataset.id]=this.title;   
         }
     });
-    console.log(JSON.stringify(filtrosUsados));
+    console.log(filtrosUsados);
+    if(filtrosUsados["Edad"])
     console.log("aparecere edad?:"+filtrosUsados["Edad"]);
     $("#filtros").append("<h5>"+JSON.stringify(filtrosUsados)+"</h5>");
 }
