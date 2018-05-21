@@ -25,6 +25,7 @@ function cambiarArchivoCss(archivo) {
     });
 }
 function filtrar(){
+    var mensaje;
     var filtrosUsados=[];
     $("#selectsFiltros div button").each(function(){
         if(!$(this).hasClass("bs-placeholder")){
@@ -32,10 +33,12 @@ function filtrar(){
         }
     });
     console.log(filtrosUsados);
-    if(filtrosUsados["Edad"])
-    console.log("aparecere edad?:"+filtrosUsados["Edad"]);
-    $("#filtros").append("<h5>"+JSON.stringify(filtrosUsados)+"</h5>");
-    return filtrosUsados;
+    if(filtrosUsados["Edad"]){
+      filtrosUsados["Edad"]=filtrosUsados["Edad"].split(" ")[0];
+      console.log("aparecere edad?:"+filtrosUsados["Edad"]);
+    }
+    mensaje={filtros: filtrosUsados};
+    return mensaje;
 }
 $(document).on("click","#botonFiltro", function(){
         filtrar();

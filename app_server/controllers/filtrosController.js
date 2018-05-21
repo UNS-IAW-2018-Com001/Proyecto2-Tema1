@@ -3,7 +3,7 @@ const Grupo = mongoose.model('grupos');
 const Rama = mongoose.model('ramas');
 
 
-/* Retorna los comentarios que correspondan al grupo o rama que se obtienen como parametro */
+/* Retorna los comentarios que correspondan al grupo o rama que se obtienen como parametro 
 const getComentarios = function(req, res){
   var id_perteneciente=req.param("id");
 
@@ -16,23 +16,22 @@ const postComentarios=function(req,res){
   Comentario.collection.insert([req.body.elemento],onInsert);
   res.send(req.body);
 };
+*/
 
 const calcularFiltros=function(req,res){
   var filtros= req.body.filtros;
 
   var queryRamas=Rama.find();
-
-
-  
-
+  if(filtros["Sexo"])
+    queryRamas.where('tipo').equals(filtros["Sexo"]);
+  if(filtros["Edad"]){
+    queryRamas.where("edad_minima").lte(filtros["Edad"]);
+    queryRamas.where('edad_maxima').gte(filtros["Edad"]);
+  }
+  queryRamas.exec((err, filtroRama) => {
+    res.status(200).jsonp(filtroRama);
+  })
 };
-function onInsert(err, docs){
-    if (err) throw err;
-    else {
-      console.info('%d success !!!! .',docs.length);
-    }
-}
-
 
 module.exports = {
   calcularFiltros
