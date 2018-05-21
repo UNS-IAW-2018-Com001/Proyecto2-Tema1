@@ -38,7 +38,24 @@ function filtrar(){
       console.log("aparecere edad?:"+filtrosUsados["Edad"]);
     }
     mensaje=JSON.stringify({filtros: filtrosUsados});
-    return filtrosUsados;
+    getFiltros('./api/comentarios',filtrosUsados);
+    return mensaje;
+}
+
+function getFiltros(ruta,elemento_nuevo) {
+  //const jsonString = JSON.stringify(Array.from(comentario.values()));
+  $.ajax({
+      url: ruta,
+      type: 'POST',
+      data: JSON.stringify({filtros: elemento_nuevo}),
+      contentType: "application/json",
+      dataType: "json",
+      success: function(data){
+        console.log(data);
+        console.log(JSON.stringify(data));
+      },
+      error:function(data){ }
+  });
 }
 $(document).on("click","#botonFiltro", function(){
         filtrar();
