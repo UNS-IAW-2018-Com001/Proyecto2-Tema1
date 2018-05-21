@@ -32,10 +32,8 @@ function filtrar(){
             filtrosUsados[this.dataset.id]=this.title;   
         }
     });
-    console.log(filtrosUsados);
     if(filtrosUsados["Edad"]){
       filtrosUsados["Edad"]=filtrosUsados["Edad"].split(" ")[0];
-      console.log("aparecere edad?:"+filtrosUsados["Edad"]);
     }
     mensaje=JSON.stringify({filtros: filtrosUsados});
     getFiltros('./api/filtros',filtrosUsados);
@@ -52,7 +50,6 @@ function getFiltros(ruta,elemento_nuevo) {
       dataType: "json",
       success: function(data){
         console.log(data);
-        console.log(JSON.stringify(data));
       },
       error:function(data){ }
   });
