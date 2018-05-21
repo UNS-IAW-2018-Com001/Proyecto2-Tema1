@@ -32,26 +32,18 @@ const calcularFiltros=function(req,res){
     queryRamas.where('edad_maxima').gte(filtros["Edad"]);
   }
   queryRamas.exec((err, filtroRama) => {
-  //  var gruposFiltrados=[];
+    var gruposFiltrados=[];
     var ramasFiltradas=[];  
-    //$.each(filtroRama, function (index, rama) {
-     // var queryGrupo=Grupo.find({"_id":rama.GrupoPerteneciente});
- //     if(filtros["Religion"])
-//        queryGrupo.where('religion').equals(filtros["Religion"]);
-      //queryGrupo.exec((err, grupo) => {
-        //console.log(grupo);
-    //    ramasFiltradas.push(rama);
-  //      gruposFiltrados.push(grupo);
-    // });
-
-    //});
     for(var rama in filtroRama){
       var queryGrupo=Grupo.find({"_id":filtroRama[rama].GrupoPerteneciente});
       if(filtros["Religion"])
         queryGrupo.where('religion').equals(filtros["Religion"]);
-      queryGrupo.exec((err, grupo,ramita=filtroRama[rama]) => {
+      queryGrupo.exec((err, grupo) => {
         if(grupo){
-        console.log("Rama: "+ramita+", Grupo:"+grupo);
+          console.log("Grupo:"+grupo);
+        if(grupo.nombre){
+          console.log("GrupoNmobre:"+grupo);
+        }
         }
       });
     }
