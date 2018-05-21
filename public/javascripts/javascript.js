@@ -35,6 +35,7 @@ function filtrar(){
     if(filtrosUsados["Edad"])
     console.log("aparecere edad?:"+filtrosUsados["Edad"]);
     $("#filtros").append("<h5>"+JSON.stringify(filtrosUsados)+"</h5>");
+    return filtrosUsados;
 }
 $(document).on("click","#botonFiltro", function(){
         filtrar();
