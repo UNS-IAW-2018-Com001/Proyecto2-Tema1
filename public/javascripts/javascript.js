@@ -28,13 +28,13 @@ function filtrar(){
     var filtrosUsados=[];
     $("#selectsFiltros div button").each(function(){
         if(!$(this).hasClass("bs-placeholder")){
-            var filtro= {id:this.dataset.id,title: this.title } ;
-            filtrosUsados.push(filtro);   
+            filtrosUsados[this.dataset.id]=this.title;   
         }
     });
+    console.log(JSON.stringify(filtrosUsados));
+    console.log("aparecere edad?:"+filtrosUsados["Edad"]);
     $("#filtros").append("<h5>"+JSON.stringify(filtrosUsados)+"</h5>");
 }
 $(document).on("click","#botonFiltro", function(){
         filtrar();
-
-    });
+});
