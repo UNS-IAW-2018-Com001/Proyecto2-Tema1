@@ -24,23 +24,20 @@ function cambiarArchivoCss(archivo) {
     }
     });
 }
-function getId(data){
-  return data.id;
-}
 function filtrar(){
     var mensaje;
-    var filtrosUsados=new Object;
+    var filtrosUsados=new Object();
     $("#selectsFiltros div button").each(function(){
         if(!$(this).hasClass("bs-placeholder")){
-            filtrosUsados.$(getId(this.dataset))=this.title;   
+            filtrosUsados[this.dataset.id]=this.title;   
         }
     });
     console.log(filtrosUsados);
-//    if(filtrosUsados["Edad"]){
-//      filtrosUsados["Edad"]=filtrosUsados["Edad"].split(" ")[0];
-//      console.log("aparecere edad?:"+filtrosUsados["Edad"]);
-//    }
-//    mensaje={filtros: filtrosUsados};
+    if(filtrosUsados["Edad"]){
+      filtrosUsados["Edad"]=filtrosUsados["Edad"].split(" ")[0];
+      console.log("aparecere edad?:"+filtrosUsados["Edad"]);
+    }
+    mensaje=JSON.stringify({filtros: filtrosUsados});
     return filtrosUsados;
 }
 $(document).on("click","#botonFiltro", function(){
