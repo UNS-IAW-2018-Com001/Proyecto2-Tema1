@@ -38,10 +38,10 @@ const calcularFiltros=function(req,res){
       var queryGrupo=Grupo.find({"_id":rama.GrupoPerteneciente});
  //     if(filtros["Religion"])
 //        queryGrupo.where('religion').equals(filtros["Religion"]);
-      queryGrupo.exec((err, grupo) => {
-        ramasFiltradas.push(rama);
-        gruposFiltrados.push(grupo);
-      }
+//      queryGrupo.exec((err, grupo) => {
+ //       ramasFiltradas.push(rama);
+  //      gruposFiltrados.push(grupo);
+   //   }
 
     });
     res.status(200).jsonp(filtroRama);
