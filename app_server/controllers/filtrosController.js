@@ -49,7 +49,7 @@ const calcularFiltros=function(req,res){
       });
       promises.push(promesa);
     }
-    Promise.all(promises).then(function(results) {
+    Promise.all(promises).done(function(results) {
       console.log("GR: "+gruposFiltrados);
       //console.log("R: "+ramasFiltradas);
     })
