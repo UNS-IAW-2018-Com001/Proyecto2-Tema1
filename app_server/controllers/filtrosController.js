@@ -45,13 +45,16 @@ const calcularFiltros=function(req,res){
         if(grupo[0]){
           console.log("GrupoNombre:"+grupo[0].nombre+" Grupo:"+grupo);
           gruposFiltrados.push(grupo);     
+          resolve(grupo);
         }
-        return true;
+        
       });
       promises.push(promesa);
       console.log("promises: "+promises);
     }
-
+    Promise.all(promises).then(function (Resolves){
+      console.log(Resolves);
+    });
     console.log("gruposFiltrados= "+gruposFiltrados);
     res.status(200).jsonp(filtroRama);
   });
