@@ -49,10 +49,10 @@ const calcularFiltros=function(req,res){
       });
       promises.push(promesa);
     }
-    Promise.all(promises).done(function(results) {
+    $.when(Promise.all(promises)).done(function(results) {
       console.log("GR: "+gruposFiltrados);
       //console.log("R: "+ramasFiltradas);
-    })
+    },function(err){console.log("ERRRRRoR")});
     console.log("gruposFiltrados= "+gruposFiltrados);
     res.status(200).jsonp(filtroRama);
   });
