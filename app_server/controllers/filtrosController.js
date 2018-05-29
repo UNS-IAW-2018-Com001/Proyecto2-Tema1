@@ -34,17 +34,25 @@ const calcularFiltros=function(req,res){
   queryRamas.exec((err, filtroRama) => {
     gruposFiltrados=[];
     ramasFiltradas=[];  
+    promises=[];
+
     for(var rama in filtroRama){
       var queryGrupo=Grupo.find({"_id":filtroRama[rama].GrupoPerteneciente});
       if(filtros["Religion"])
         queryGrupo.where('religion').equals(filtros["Religion"]);
-      queryGrupo.exec((err, grupo) => {
+      
+      var promesa=queryGrupo.exec((err, grupo) => {
         if(grupo[0]){
           console.log("GrupoNombre:"+grupo[0].nombre+" Grupo:"+grupo);
           gruposFiltrados.push(grupo);     
         }
       });
+      promises.push(promesa);
     }
+    Promise.all(promises).then(function(results) {
+      console.log("GR: "+gruposFiltrados);
+      //console.log("R: "+ramasFiltradas);
+    })
     console.log("gruposFiltrados= "+gruposFiltrados);
     res.status(200).jsonp(filtroRama);
   });
