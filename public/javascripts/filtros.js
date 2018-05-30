@@ -19,7 +19,7 @@ function borrarFiltro(){
   filtroActivo=false;
 }
 
-function getFiltrosGrupos(ruta,elemento_nuevo) {
+function getFiltros(ruta,elemento_nuevo) {
   //const jsonString = JSON.stringify(Array.from(comentario.values()));
   $.ajax({
       url: ruta,
