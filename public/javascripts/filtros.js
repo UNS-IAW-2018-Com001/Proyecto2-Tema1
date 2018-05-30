@@ -52,6 +52,7 @@ function getFiltrosRama(ruta,elemento_nuevo,nombre_cod) {
       dataType: "json",
       success: function(data){
         console.log(data);
+        ramas=data;
         ramasFiltradas=data;
         filtroActivo=true;
         mostrarRamasAuxiliar(data,nombre_cod);
