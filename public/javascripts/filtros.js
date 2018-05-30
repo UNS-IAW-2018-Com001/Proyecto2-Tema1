@@ -17,6 +17,7 @@ function borrarFiltro(){
   $('.selectpicker').val('');
   $('.selectpicker').selectpicker('render');
   filtroActivo=false;
+  mostrarGrupo();
 }
 
 function getFiltrosGrupo(ruta,elemento_nuevo) {
@@ -38,4 +39,7 @@ function getFiltrosGrupo(ruta,elemento_nuevo) {
 }
 $(document).on("click","#botonFiltro", function(){
         filtrar();
+});
+$(document).on("click","#botonBorrarFiltro", function(){
+        borrarFiltro();
 });
