@@ -108,7 +108,7 @@ function mostrarRama(nombre_cod) {
 }
 
 function mostrarTodasLasRamas(nombre_cod) {
-   $.get("./api/ramas?id_grupo="+nombre_cod,mostrarRamasAuxiliar(data));
+   $.get("./api/ramas?id_grupo="+nombre_cod,function(data){mostrarRamasAuxiliar(data);});
 
 }
 
