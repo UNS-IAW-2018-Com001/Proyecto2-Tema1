@@ -36,7 +36,11 @@ $(document).on("click",".Botonramas", function(){
 $(document).on("click","#id_grupo", function(){
         mostrarGrupo();
     });
-  
+    
+  $(document).on("click","#login", function(){
+    $.get("./login/facebook", function (data) {
+          });
+        });
 
 //login facebook
 $.ajax({
@@ -97,29 +101,28 @@ function mostrarGrupo() {
 
 
 function mostrarRama(nombre_cod) {
-    if(filtroActivo)
-        mostrarRamasFiltradas(nombre_cod);
-    else
+   // if(filtroActivo)
+     //   mostrarRamasFiltradas(nombre_cod);
+    //else
         mostrarTodasLasRamas(nombre_cod);
 }
 
 function mostrarTodasLasRamas(nombre_cod) {
-   $.get("./api/ramas?id_grupo="+nombre_cod, mostrarRamaAuxiliar(data));
+   $.get("./api/ramas?id_grupo="+nombre_cod, function (data) {
+        ramas=data;
+      crearGaleria(obtenerImagenesGrupo(nombre_cod));
+      seleccionarTabRama();
+        var raw;
+        $("#gruposyRamas").empty();
+        $.each(ramas, function (index, rama) {
+                raw = $("<button type=\"button\" class=\"list-group-item Botonramas\" id=\"" + rama._id + "\"></button>").text(rama.nombre);
+                $("#gruposyRamas").append(raw);
+          });
+    });
 
 }
-function mostrarRamaAuxiliar(data) {
-    ramas=data;
-    crearGaleria(obtenerImagenesGrupo(nombre_cod));
-    seleccionarTabRama();
-    var raw;
-    $("#gruposyRamas").empty();
-    $.each(ramas, function (index, rama) {
-        raw = $("<button type=\"button\" class=\"list-group-item Botonramas\" id=\"" + rama._id + "\"></button>").text(rama.nombre);
-        $("#gruposyRamas").append(raw);
-    });
-}
 function mostrarRamasFiltradas(nombre_cod){
-//    var filtrosUsados=getFiltroActual();
+ //   var filtrosUsados=getFiltroActual();
 
 }
 
