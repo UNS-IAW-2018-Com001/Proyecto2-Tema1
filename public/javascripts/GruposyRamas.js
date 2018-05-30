@@ -1,4 +1,4 @@
-var datos;
+var grupos;
 var ramas;
 var codigo;
 var enGrupo;
@@ -6,14 +6,19 @@ var comentarioGrupos;
 var comentarioRama;
 var dataUser;
 
+//Para Filtros
+var filtroActivo=false;
+var gruposFiltrados=[];
+var ramasFiltradas=[];
+
 
 $(function () {
     $.get("./api/grupos", function (data) {
-       datos = data;
+       grupos = data;
       $('#panelInfo').hide();
        $('#panel-nuevoComentario').hide();
        initMap();
-    });
+ });
 
 $(document).on("click",".Botongrupos", function(){
       var id_grupo= $(this).attr('id');
@@ -30,7 +35,6 @@ $(document).on("click",".Botonramas", function(){
 
 $(document).on("click","#id_grupo", function(){
         mostrarGrupo();
-
     });
 
 //login facebook
@@ -80,7 +84,10 @@ function cargarComentarioRama(nombre_cod) {
 function mostrarGrupo() {
     seleccionarTabGrupo();
     $("#gruposyRamas").empty();
-    $.each(datos, function (index, grupo) {
+    var gruposAMostrar=grupos;
+    if(filtroActivo)
+        gruposAMostrar=gruposFiltrados;
+    $.each(gruposAMostrar, function (index, grupo) {
         agregarGrupo(grupo);
     });
    $('#panelInfo').hide();
@@ -114,7 +121,7 @@ function mostrarInfoGrupo(nombre_cod) {
      codigo = nombre_cod;
     enGrupo = true;
     $('#panelInfo').show();
-    $.each(datos, function (index, grupo) {
+    $.each(grupos, function (index, grupo) {
         if (nombre_cod == (grupo._id)) {
             $("#boddy2").empty();
             $("#boddy2").append("<dt>Nombre grupo:</dt>");
@@ -283,7 +290,7 @@ function seleccionarTabRama() {
 
 function obtenerLocalizacionGrupos() {
     var retorno = new Array();
-     $.each(datos, function (index, grupo) {
+     $.each(grupos, function (index, grupo) {
         var grupoI = new Array();
         grupoI.push(grupo.nombre);
         grupoI.push(grupo.ubicacion.coords[0]);
