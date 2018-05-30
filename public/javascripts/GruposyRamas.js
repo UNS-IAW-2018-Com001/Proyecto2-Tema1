@@ -108,26 +108,23 @@ function mostrarRama(nombre_cod) {
 }
 
 function mostrarTodasLasRamas(nombre_cod) {
-   $.get("./api/ramas?id_grupo="+nombre_cod,function(data){mostrarRamasAuxiliar(data,nombre_cod);});
+   $.get("./api/ramas?id_grupo="+nombre_cod,function(data){
+    ramas=data;
+    mostrarRamasAuxiliar(data,nombre_cod);});
 
 }
 
-function mostrarRamasAuxiliar(data,nombre_cod) {
-        ramas=data;
+function mostrarRamasAuxiliar(ramasAMostrar,nombre_cod) {
       crearGaleria(obtenerImagenesGrupo(nombre_cod));
       seleccionarTabRama();
         var raw;
         $("#gruposyRamas").empty();
-        $.each(ramas, function (index, rama) {
-                raw = $("<button type=\"button\" class=\"list-group-item Botonramas\" id=\"" + rama._id + "\"></button>").text(rama.nombre);
-                $("#gruposyRamas").append(raw);
-          });
+        $.each(ramasAMostrar, function (index, rama) {
+            raw = $("<button type=\"button\" class=\"list-group-item Botonramas\" id=\"" + rama._id + "\"></button>").text(rama.nombre);
+            $("#gruposyRamas").append(raw);
+        });
     }
-function mostrarRamasFiltradas(nombre_cod){
- //   var filtrosUsados=getFiltroActual();
-
-}
-
+function mostrarRamasFiltradas(nombre_cod);
 
 function agregarGrupo(grupo) {
     var nombre = $("<button type=\"button\" class=\"list-group-item Botongrupos\" id=\""+grupo._id +"\" ></button>").text(grupo.nombre);

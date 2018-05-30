@@ -19,6 +19,7 @@ router.get('/api/comentarios', ctrlComentarios.getComentarios);
 router.post("/api/comentarios", ctrlComentarios.postComentarios);
 
 router.post("/api/filtros/grupos", ctrlFiltros.filtrosGrupos);
+router.post("/api/filtros/ramas", ctrlFiltros.filtrosRamas);
 
 
 
