@@ -8,9 +8,10 @@ passport.use(new Strategy({
     clientSecret: '67725dcbcdea15b5ab166a0e8088ae84',
     callbackURL: "https://scoutsenargentina.herokuapp.com/auth/facebook/callback"
       },
-      función ( accessToken , refreshToken , profile , cb ) {
-      Usuario . findOrCreate ({facebookId :  perfil.id }, función ( err , usuario ) {
-        return  cb (err, usuario);
+      function(accessToken, refreshToken, profile, done) {
+    User.findOrCreate({name: profile.displayName}, {name: profile.displayName,userid: profile.id}, function(err, user) {
+      if (err) { return done(err); }
+      done(null, user);
     });
   }
 ));
