@@ -1,7 +1,7 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
 var Strategy = require('passport-facebook').Strategy;
-var User = require('../models/users');
+var User = require('../models/user');
 
 passport.use(new Strategy({
     clientID: "211557066103646",
