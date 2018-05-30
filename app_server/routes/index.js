@@ -17,7 +17,7 @@ router.post("/api/preferenciasUsuario", ctrlPreferencias.postPreferencias);
 router.get('/api/comentarios', ctrlComentarios.getComentarios);
 router.post("/api/comentarios", ctrlComentarios.postComentarios);
 
-router.post("/api/filtros", ctrlFiltros.calcularFiltros);
+router.post("/api/filtros/grupos", ctrlFiltros.filtrosGrupos);
 
 
 module.exports = router;

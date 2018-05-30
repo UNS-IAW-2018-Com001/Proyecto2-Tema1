@@ -7,7 +7,7 @@ Array.prototype.unique=function(a){
   return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0
 });
 
-const calcularFiltros=function(req,res){
+const filtrosGrupos=function(req,res){
   var filtros= req.body.filtros;
 
   var queryRamas=Rama.find();
@@ -38,5 +38,5 @@ const calcularFiltros=function(req,res){
 var gruposFiltrados=[];
 var ramasFiltradas=[];  
 module.exports = {
-  calcularFiltros
+  filtrosGrupos
 };

@@ -36,7 +36,7 @@ function filtrar(){
       filtrosUsados["Edad"]=filtrosUsados["Edad"].split(" ")[0];
     }
     mensaje=JSON.stringify({filtros: filtrosUsados});
-    getFiltros('./api/filtros',filtrosUsados);
+    getFiltros('./api/filtros/grupos',filtrosUsados);
     return mensaje;
 }
 
