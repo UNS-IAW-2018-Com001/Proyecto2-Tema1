@@ -10,7 +10,7 @@ function filtrar(){
       filtrosUsados["Edad"]=filtrosUsados["Edad"].split(" ")[0];
     }
     mensaje=JSON.stringify({filtros: filtrosUsados});
-    getFiltros('./api/filtros/grupos',filtrosUsados);
+    getFiltrosGrupo('./api/filtros/grupos',filtrosUsados);
     return mensaje;
 }
 function borrarFiltro(){
@@ -19,7 +19,7 @@ function borrarFiltro(){
   filtroActivo=false;
 }
 
-function getFiltros(ruta,elemento_nuevo) {
+function getFiltrosGrupo(ruta,elemento_nuevo) {
   //const jsonString = JSON.stringify(Array.from(comentario.values()));
   $.ajax({
       url: ruta,
@@ -29,8 +29,9 @@ function getFiltros(ruta,elemento_nuevo) {
       dataType: "json",
       success: function(data){
         console.log(data);
-
+        gruposFiltrados=data;
         filtroActivo=true;
+        mostrarGrupo();
       },
       error:function(data){ }
   });
