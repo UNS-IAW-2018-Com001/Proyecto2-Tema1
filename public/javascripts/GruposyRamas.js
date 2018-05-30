@@ -101,14 +101,18 @@ function mostrarGrupo() {
 
 
 function mostrarRama(nombre_cod) {
-   // if(filtroActivo)
-     //   mostrarRamasFiltradas(nombre_cod);
-    //else
+    if(filtroActivo)
+        mostrarRamasFiltradas(nombre_cod);
+    else
         mostrarTodasLasRamas(nombre_cod);
 }
 
 function mostrarTodasLasRamas(nombre_cod) {
-   $.get("./api/ramas?id_grupo="+nombre_cod, function (data) {
+   $.get("./api/ramas?id_grupo="+nombre_cod,mostrarRamasAuxiliar(data));
+
+}
+
+function mostrarRamasAuxiliar(data) {
         ramas=data;
       crearGaleria(obtenerImagenesGrupo(nombre_cod));
       seleccionarTabRama();
@@ -118,9 +122,7 @@ function mostrarTodasLasRamas(nombre_cod) {
                 raw = $("<button type=\"button\" class=\"list-group-item Botonramas\" id=\"" + rama._id + "\"></button>").text(rama.nombre);
                 $("#gruposyRamas").append(raw);
           });
-    });
-
-}
+    }
 function mostrarRamasFiltradas(nombre_cod){
  //   var filtrosUsados=getFiltroActual();
 
