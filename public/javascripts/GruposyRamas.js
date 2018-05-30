@@ -101,17 +101,29 @@ function mostrarGrupo() {
 
 
 function mostrarRama(nombre_cod) {
-   $.get("./api/ramas?id_grupo="+nombre_cod, function (data) {
-        ramas=data;
-      crearGaleria(obtenerImagenesGrupo(nombre_cod));
-      seleccionarTabRama();
-        var raw;
-        $("#gruposyRamas").empty();
-        $.each(ramas, function (index, rama) {
-                raw = $("<button type=\"button\" class=\"list-group-item Botonramas\" id=\"" + rama._id + "\"></button>").text(rama.nombre);
-                $("#gruposyRamas").append(raw);
-          });
+    if(filtroActivo)
+        mostrarRamasFiltradas(nombre_cod);
+    else
+        mostrarTodasLasRamas(nombre_cod);
+}
+
+function mostrarTodasLasRamas(nombre_cod) {
+   $.get("./api/ramas?id_grupo="+nombre_cod, mostrarRamaAuxiliar(data));
+
+}
+function mostrarRamaAuxiliar(data) {
+    ramas=data;
+    crearGaleria(obtenerImagenesGrupo(nombre_cod));
+    seleccionarTabRama();
+    var raw;
+    $("#gruposyRamas").empty();
+    $.each(ramas, function (index, rama) {
+        raw = $("<button type=\"button\" class=\"list-group-item Botonramas\" id=\"" + rama._id + "\"></button>").text(rama.nombre);
+        $("#gruposyRamas").append(raw);
     });
+}
+function mostrarRamasFiltradas(nombre_cod){
+//    var filtrosUsados=getFiltroActual();
 
 }
 

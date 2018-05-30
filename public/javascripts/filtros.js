@@ -1,6 +1,5 @@
-function filtrar(){
-    var mensaje;
-    var filtrosUsados=new Object();
+function getFiltroActual(){
+  var filtrosUsados=new Object();
     $("#selectsFiltros div button").each(function(){
         if(!$(this).hasClass("bs-placeholder")){
             filtrosUsados[this.dataset.id]=this.title;   
@@ -9,6 +8,11 @@ function filtrar(){
     if(filtrosUsados["Edad"]){
       filtrosUsados["Edad"]=filtrosUsados["Edad"].split(" ")[0];
     }
+    return filtrosUsados;
+}
+function filtrar(){
+    var mensaje;
+    var filtrosUsados=getFiltroActual;
     mensaje=JSON.stringify({filtros: filtrosUsados});
     getFiltrosGrupo('./api/filtros/grupos',filtrosUsados);
     return mensaje;
