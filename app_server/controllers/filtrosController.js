@@ -3,20 +3,6 @@ const Grupo = mongoose.model('grupos');
 const Rama = mongoose.model('ramas');
 
 
-/* Retorna los comentarios que correspondan al grupo o rama que se obtienen como parametro 
-const getComentarios = function(req, res){
-  var id_perteneciente=req.param("id");
-
-  Comentario.find({"perteneciente":id_perteneciente}).exec((err, Comentario) => {
-    res.status(200).jsonp(Comentario);
-  })
-};
-
-const postComentarios=function(req,res){
-  Comentario.collection.insert([req.body.elemento],onInsert);
-  res.send(req.body);
-};
-*/
 Array.prototype.unique=function(a){
   return function(){return this.filter(a)}}(function(a,b,c){return c.indexOf(a,b+1)<0
 });
@@ -32,6 +18,7 @@ const calcularFiltros=function(req,res){
     queryRamas.where('edad_maxima').gte(filtros["Edad"]);
   }
   queryRamas.exec((err, filtroRama) => {
+    /*
     gruposFiltrados=[];
     ramasFiltradas=[];  
     promises=[];
@@ -52,7 +39,16 @@ const calcularFiltros=function(req,res){
       console.log("promises: "+promises);
     }
 
-    console.log("gruposFiltrados= "+gruposFiltrados);
+    console.log("gruposFiltrados= "+gruposFiltrados);*/
+    var cantidadRamas=filtroRama.length;
+    console.log("length"+cantidadRamas);
+    var idGrupos=[];
+    for(var i=0;i<cantidadRamas;i++){
+      console.log("Grupo n"+i+" es:"+filtroRama[i].GrupoPerteneciente);
+      idGrupos[i]=filtroRama[i].GrupoPerteneciente;
+    }
+//    var queryGrupo=Grupo.find({"_id":filtroRama[rama].GrupoPerteneciente});
+
     res.status(200).jsonp(filtroRama);
   });
 };
