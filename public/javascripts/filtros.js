@@ -12,7 +12,7 @@ function getFiltroActual(){
 }
 function filtrar(){
     var mensaje;
-    var filtrosUsados=getFiltroActual;
+    var filtrosUsados=getFiltroActual();
     mensaje=JSON.stringify({filtros: filtrosUsados});
     getFiltrosGrupo('./api/filtros/grupos',filtrosUsados);
     return mensaje;
