@@ -52,7 +52,7 @@ const calcularFiltros=function(req,res){
         queryGrupo.where('religion').equals(filtros["Religion"]);
     
     queryGrupo.exec((err, gruposFiltrados) => { 
-      console.log("gruposFiltrados: "gruposFiltrados);
+      console.log("gruposFiltrados: "+gruposFiltrados);
     }   
 
     res.status(200).jsonp(filtroRama);
