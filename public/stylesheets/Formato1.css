@@ -16,6 +16,20 @@ body {
     height:100%;
 
 }
+.btn-group.bootstrap-select {
+
+    padding-left: 0px;
+    padding-right: 0px;
+
+}
+
+#botonFiltro{
+    margin-top: 5px;
+}
+#botonBorrarFiltro{
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
 #BotonFiltro1{
     padding: 1em;
 }

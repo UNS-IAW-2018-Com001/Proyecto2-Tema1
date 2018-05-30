@@ -55,6 +55,11 @@ body {
 #botonFiltro{
     margin-top: 5px;
 }
+#botonBorrarFiltro{
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
+
 #id_rama{
 	border-width:1px;
 }
