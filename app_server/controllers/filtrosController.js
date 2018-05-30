@@ -52,5 +52,6 @@ const filtrosRamas=function(req,res){
   });
 };
 module.exports = {
-  filtrosGrupos
+  filtrosGrupos,
+  filtrosRamas
 };
