@@ -123,8 +123,8 @@ function mostrarRamasAuxiliar(ramasAMostrar,nombre_cod) {
             raw = $("<button type=\"button\" class=\"list-group-item Botonramas\" id=\"" + rama._id + "\"></button>").text(rama.nombre);
             $("#gruposyRamas").append(raw);
         });
-    }
-function mostrarRamasFiltradas(nombre_cod);
+}
+//function mostrarRamasFiltradas(nombre_cod);
 
 function agregarGrupo(grupo) {
     var nombre = $("<button type=\"button\" class=\"list-group-item Botongrupos\" id=\""+grupo._id +"\" ></button>").text(grupo.nombre);
