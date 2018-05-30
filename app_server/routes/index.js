@@ -23,21 +23,21 @@ router.post("/api/filtros/ramas", ctrlFiltros.filtrosRamas);
 
 
 
+
+
 router.get('/logout/facebook', function(req, res) {
   req.logout();
   res.redirect('/');
 });
 
-router.get('/auth/facebook', passport.authenticate('facebook', { scope: ['public_profile']}));
+router.get('/auth/facebook/', passport.authenticate('facebook', { scope: ['public_profile']}));
 router.get('/auth/facebook/callback',
-	passport.authenticate('facebook', { failureRedirect: '/login' }),
- 		 function(req, res) {
-  		  // Successful authentication, redirect home.
-   		 res.redirect('/');
+passport.authenticate('facebook', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
 
-  	});
-
-
+  });
 
 
-module.exports = router;
+  module.exports = router;
