@@ -36,6 +36,7 @@ $(document).on("click",".Botonramas", function(){
 $(document).on("click","#id_grupo", function(){
         mostrarGrupo();
     });
+$('.selectpicker').selectpicker('deselectAll');
 
 //login facebook
 $.ajax({
