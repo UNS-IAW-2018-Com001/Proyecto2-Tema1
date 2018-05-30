@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const passport = require('../auth/auth_fb');
 const ctrlMain = require('../controllers/main');
 const ctrlGrupos = require('../controllers/gruposController');
 const ctrlRamas = require('../controllers/ramasController');
@@ -18,6 +19,24 @@ router.get('/api/comentarios', ctrlComentarios.getComentarios);
 router.post("/api/comentarios", ctrlComentarios.postComentarios);
 
 router.post("/api/filtros/grupos", ctrlFiltros.filtrosGrupos);
+
+
+
+router.get('/logout/facebook', function(req, res) {
+  req.logout();
+  res.redirect('/');
+});
+
+router.get('/login/facebook', passport.authenticate('facebook', { scope: ['public_profile']}));
+router.get('/auth/facebook/callback',
+	passport.authenticate('facebook', { failureRedirect: '/login' }),
+ 		 function(req, res) {
+  		  // Successful authentication, redirect home.
+   		 res.redirect('/');
+
+  	});
+
+
 
 
 module.exports = router;
