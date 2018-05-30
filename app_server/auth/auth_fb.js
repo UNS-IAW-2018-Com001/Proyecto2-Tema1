@@ -10,16 +10,10 @@ passport.use(new Strategy({
       },
       function(accessToken, refreshToken, profile, done) {
          //check user table for anyone with a facebook ID of profile.id
-        User.findOne({
-            'facebookid': profile.id
-        }, function(err, user) {
-            if (err) {
-                return done(err);
-            }
-            //found user. Return
-            return done(null, user);
-
-        });
+         User.findOrCreate(..., function(err, user) {
+         if (err) { return done(err); }
+         done(null, user);
+       });
       }));
 
       passport.serializeUser(function(user, cb) {
