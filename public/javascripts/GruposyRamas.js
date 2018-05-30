@@ -36,6 +36,11 @@ $(document).on("click",".Botonramas", function(){
 $(document).on("click","#id_grupo", function(){
         mostrarGrupo();
     });
+    
+  $(document).on("click","#login", function(){
+    $.get("./login/facebook", function (data) {
+          });
+        });
 
 //login facebook
 $.ajax({
