@@ -3,6 +3,8 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const passport = require('passport');
+
 require('./app_server/models/db')
 
 const indexRouter = require('./app_server/routes/index');
