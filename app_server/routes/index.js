@@ -35,7 +35,7 @@ router.get('/logout/', function(req, res) {
 router.get('/auth/twitter', passport.authenticate('twitter'));
 // Ruta de callback, a la que redirigirá tras autenticarse con Twitter.
 // En caso de fallo redirige a otra vista '/login'
-router.get('/auth/facebook/callback',
+router.get('/auth/twitter/callback',
 passport.authenticate('twitter', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
