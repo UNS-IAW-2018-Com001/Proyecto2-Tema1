@@ -2,7 +2,6 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser')
 const logger = require('morgan');
 const passport = require('passport');
 
@@ -18,23 +17,30 @@ require('./passport')(passport);
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'twig');
 
+app.use(express.favicon());
+app.use(express.logger('dev'));
 
-
-app.use(logger('dev'));
+// Middlewares de Express que nos permiten enrutar y poder
+// realizar peticiones HTTP (GET, POST, PUT, DELETE)
+app.use(express.cookieParser());
+app.use(express.urlencoded());
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(express.methodOverride());
+
+// Ruta de los archivos estáticos (HTML estáticos, JS, CSS,...)
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.json());
+// Indicamos que use sesiones, para almacenar el objeto usuario
+// y que lo recuerde aunque abandonemos la página
+app.use(express.session({ secret: 'SECRET' }));
 
-app.use(require('express-session')({
-  secret: 'wewantbeer-s3cr3t',
-  resave: true,
-  saveUninitialized: true
-}));
-
+// Configuración de Passport. Lo inicializamos
+// y le indicamos que Passport maneje la Sesión
 app.use(passport.initialize());
 app.use(passport.session());
+
+
+
+
 
 
 app.use('/', indexRouter);
