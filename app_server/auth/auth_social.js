@@ -6,7 +6,7 @@ var User = require('../models/user');
 passport.use(new Strategy({
     clientID: '1999374736802788',
     clientSecret: '82f6b86269dc15614bff103657053c19',
-    callbackURL: "https://scoutsenargentina.herokuapp.com/auth/facebook/callback",
+    callbackURL: "https://scoutsenargentina.herokuapp.com",
     profileFields: ['id','displayName','name','photos']
   },
   function(accessToken, refreshToken, profile, done) {
