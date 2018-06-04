@@ -32,15 +32,12 @@ router.get('/logout/', function(req, res) {
   res.redirect('/');
 });
 
-router.get('/login/twitter', passportFacebook.authenticate('twitter', { scope: ['public_profile']}));
-router.get('/auth/twitter/callback', passport.authenticate('twitter',
+app.get('/auth/twitter', passport.authenticate('twitter'));
+// Ruta de callback, a la que redirigirá tras autenticarse con Twitter.
+// En caso de fallo redirige a otra vista '/login'
+app.get('/auth/twitter/callback', passport.authenticate('twitter',
   { successRedirect: '/', failureRedirect: '/login' }
 ));
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/');
-
-  });
 
 
   module.exports = router;
