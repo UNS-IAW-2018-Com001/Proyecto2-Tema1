@@ -17,7 +17,6 @@ require('./passport')(passport);
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'twig');
 
-app.use(express.favicon());
 app.use(express.logger('dev'));
 
 // Middlewares de Express que nos permiten enrutar y poder
