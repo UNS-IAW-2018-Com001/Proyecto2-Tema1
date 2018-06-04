@@ -54,7 +54,7 @@ module.exports = function(passport) {
 	// Configuración del autenticado con Facebook
 	passport.use(new FacebookStrategy({
 		clientID			: 1999374736802788,
-		clientSecret	: 82f6b86269dc15614bff103657053c19,
+		clientSecret	: '82f6b86269dc15614bff103657053c19',
 		callbackURL	 : '/auth/facebook/callback',
 		profileFields : ['id', 'displayName', /*'provider',*/ 'photos']
 	}, function(accessToken, refreshToken, profile, done) {
