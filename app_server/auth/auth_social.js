@@ -7,7 +7,7 @@ var User = require('../models/user');
 	passport.use(new Strategy({
 		consumerKey		 : "ptdboGkr8BZZR2xJ1JqJw2pol",
 		consumerSecret	: "kXwpCuBJb19xVjImB1lj6tH3XF7NrVaHSnXCAMM8scMWHAQii6",
-		callbackURL		 : '/auth/twitter/callback'
+		callbackURL		 : 'https://scoutsenargentina.herokuapp.com/auth/twitter/callback'
 	}, function(accessToken, refreshToken, profile, done) {
 		// Busca en la base de datos si el usuario ya se autenticó en otro
 		// momento y ya está almacenado en ella
