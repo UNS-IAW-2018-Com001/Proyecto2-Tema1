@@ -1,81 +1,48 @@
 const passport = require('passport');
-var mongoose = require('mongoose');
-var User = mongoose.model('user');
-// Estrategia de autenticación con Twitter
-var TwitterStrategy = require('passport-twitter').Strategy;
-// Estrategia de autenticación con Facebook
-var FacebookStrategy = require('passport-facebook').Strategy;
+const mongoose = require('mongoose');
+var Strategy = require('passport-facebook').Strategy;
+var User = require('../models/users');
 
-// Serializa al usuario para almacenarlo en la sesión
-passport.serializeUser(function(user, done) {
-	done(null, user);
-});
+passport.use(new Strategy({
+    clientID: '1999374736802788',
+    clientSecret: '82f6b86269dc15614bff103657053c19',
+    callbackURL: 'https://scoutsenargentina.herokuapp.com/auth/facebook/callback',
+    profileFields: ['id','displayName','name','photos']
+  },
+  function(accessToken, refreshToken, profile, done) {
+     //check user table for anyone with a facebook ID of profile.id
+    User.findOne({
+        'facebookid': profile.id
+    }, function(err, user) {
+        if (err) {
+            return done(err);
+        }
+        //No user was found... so create a new user with values from Facebook (all the profile. stuff)
+        if (!user) {
+            user = new User({
+                username: profile.displayName,
+                facebookid: profile.id,
+                photo: profile.photos[0].value,
+                //now in the future searching on User.findOne({'facebook.id': profile.id } will match because of this next line
+                facebook: profile._json
+            });
+            user.save(function(err) {
+                if (err) console.log(err);
+            });
+        }
+        //found user. Return
+        return done(null, user);
 
-// Deserializa el objeto usuario almacenado en la sesión para
-// poder utilizarlo
-passport.deserializeUser(function(obj, done) {
-	done(null, obj);
-});
+    });
+  }));
 
-// Configuración del autenticado con Twitter
-passport.use(new TwitterStrategy({
-	consumerKey		 : 'ptdboGkr8BZZR2xJ1JqJw2pol',
-	consumerSecret	:'kXwpCuBJb19xVjImB1lj6tH3XF7NrVaHSnXCAMM8scMWHAQii6',
-	callbackURL		 : 'https://scoutsenargentina.herokuapp.com/auth/twitter/callback'
-}, function(accessToken, refreshToken, profile, done) {
-	// Busca en la base de datos si el usuario ya se autenticó en otro
-	// momento y ya está almacenado en ella
-	User.findOne({provider_id: profile.id}, function(err, user) {
-		if(err) throw(err);
-		// Si existe en la Base de Datos, lo devuelve
-		if(!err && user!= null) return done(null, user);
+  passport.serializeUser(function(user, cb) {
+    cb(null, user);
+  });
 
-		// Si no existe crea un nuevo objecto usuario
-		var user = new User({
-			provider_id	: profile.id,
-			provider		 : profile.provider,
-			name				 : profile.displayName,
-			photo				: profile.photos[0].value
-		});
-		//...y lo almacena en la base de datos
-		user.save(function(err) {
-			if(err) throw err;
-			done(null, user);
-		});
-	});
-}));
-
-// Configuración del autenticado con Facebook
-passport.use(new FacebookStrategy({
-	clientID			: 1999374736802788,
-	clientSecret	: '82f6b86269dc15614bff103657053c19',
-	callbackURL	 : 'https://scoutsenargentina.herokuapp.com/auth/facebook/callback',
-	profileFields : ['id', 'displayName', /*'provider',*/ 'photos']
-}, function(accessToken, refreshToken, profile, done) {
-	// El campo 'profileFields' nos permite que los campos que almacenamos
-	// se llamen igual tanto para si el usuario se autentica por Twitter o
-	// por Facebook, ya que cada proveedor entrega los datos en el JSON con
-	// un nombre diferente.
-	// Passport esto lo sabe y nos lo pone más sencillo con ese campo
-	User.findOne({provider_id: profile.id}, function(err, user) {
-		if(err) throw(err);
-		if(!err && user!= null) return done(null, user);
-
-		// Al igual que antes, si el usuario ya existe lo devuelve
-		// y si no, lo crea y salva en la base de datos
-		var user = new User({
-			provider_id	: profile.id,
-			provider		 : profile.provider,
-			name				 : profile.displayName,
-			photo				: profile.photos[0].value
-		});
-		user.save(function(err) {
-			if(err) throw err;
-			done(null, user);
-		});
-	});
-}));
-
+  passport.deserializeUser(function(user, cb) {
+    cb(null, user);
+  });
 
 
 

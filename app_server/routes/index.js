@@ -24,26 +24,22 @@ router.post("/api/comentarios", ctrlComentarios.postComentarios);
 router.post("/api/filtros/grupos", ctrlFiltros.filtrosGrupos);
 router.post("/api/filtros/ramas", ctrlFiltros.filtrosRamas);
 
-/* Rutas de Passport */
-// Ruta para desloguearse
-router.get('/logout', function(req, res) {
+
+
+
+router.get('/logout/facebook', function(req, res) {
   req.logout();
   res.redirect('/');
 });
-// Ruta para autenticarse con Twitter (enlace de login)
-router.get('/auth/twitter', passportFacebook.authenticate('twitter'));
-// Ruta para autenticarse con Facebook (enlace de login)
-router.get('/auth/facebook', passportFacebook.authenticate('facebook'));
-// Ruta de callback, a la que redirigirá tras autenticarse con Twitter.
-// En caso de fallo redirige a otra vista '/login'
-router.get('/auth/twitter/callback', passportFacebook.authenticate('twitter',
-  { successRedirect: '/', failureRedirect: '/login' }
-));
-// Ruta de callback, a la que redirigirá tras autenticarse con Facebook.
-// En caso de fallo redirige a otra vista '/login'
-router.get('/auth/facebook/callback', passportFacebook.authenticate('facebook',
-  { successRedirect: '/', failureRedirect: '/login' }
-));
+
+router.get('/login/facebook', passportFacebook.authenticate('facebook', { scope: ['public_profile']}));
+router.get('/auth/facebook/callback',
+passportFacebook.authenticate('facebook', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+
+  });
 
 
   module.exports = router;
