@@ -17,9 +17,10 @@ require('./passport')(passport);
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'twig');
 
+app.use(logger('dev'));
 // Middlewares de Express que nos permiten enrutar y poder
 // realizar peticiones HTTP (GET, POST, PUT, DELETE)
-app.use(express.cookieParser());
+app.use(cookieParser());
 app.use(express.urlencoded());
 app.use(express.json());
 app.use(express.methodOverride());
