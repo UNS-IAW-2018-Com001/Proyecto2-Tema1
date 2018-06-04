@@ -37,8 +37,9 @@ process.on('SIGTERM', () => {                      
   });
 });
 
-require('./filtros');
+require('./filtros');s
 require('./grupos');
 require('./ramas');
 require('./comentarios');
 require('./preferenciasUsuario');
+require('./user');
