@@ -1,40 +1,35 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
-var Strategy = require('passport-facebook').Strategy;
+var Strategy = require('passport-twitter').Strategy;
 var User = require('../models/user');
 
-passport.use(new Strategy({
-    clientID: '1999374736802788',
-    clientSecret: '82f6b86269dc15614bff103657053c19',
-    callbackURL: "https://scoutsenargentina.herokuapp.com",
-    profileFields: ['id','displayName','name','photos']
-  },
-  function(accessToken, refreshToken, profile, done) {
-     //check user table for anyone with a facebook ID of profile.id
-    User.findOne({
-        'facebookid': profile.id
-    }, function(err, user) {
-        if (err) {
-            return done(err);
-        }
-        //No user was found... so create a new user with values from Facebook (all the profile. stuff)
-        if (!user) {
-            user = new User({
-                username: profile.displayName,
-                facebookid: profile.id,
-                photo: profile.photos[0].value,
-                //now in the future searching on User.findOne({'facebook.id': profile.id } will match because of this next line
-                facebook: profile._json
-            });
-            user.save(function(err) {
-                if (err) console.log(err);
-            });
-        }
-        //found user. Return
-        return done(null, user);
+// Configuración del autenticado con Twitter
+	passport.use(new TwitterStrategy({
+		consumerKey		 : "ptdboGkr8BZZR2xJ1JqJw2pol",
+		consumerSecret	: "kXwpCuBJb19xVjImB1lj6tH3XF7NrVaHSnXCAMM8scMWHAQii6",
+		callbackURL		 : '/auth/twitter/callback'
+	}, function(accessToken, refreshToken, profile, done) {
+		// Busca en la base de datos si el usuario ya se autenticó en otro
+		// momento y ya está almacenado en ella
+		User.findOne({provider_id: profile.id}, function(err, user) {
+			if(err) throw(err);
+			// Si existe en la Base de Datos, lo devuelve
+			if(!err && user!= null) return done(null, user);
 
-    });
-  }));
+			// Si no existe crea un nuevo objecto usuario
+			var user = new User({
+				provider_id	: profile.id,
+				provider		 : profile.provider,
+				name				 : profile.displayName,
+				photo				: profile.photos[0].value
+			});
+			//...y lo almacena en la base de datos
+			user.save(function(err) {
+				if(err) throw err;
+				done(null, user);
+			});
+		});
+	}));
 
   passport.serializeUser(function(user, cb) {
     cb(null, user);

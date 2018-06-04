@@ -27,13 +27,13 @@ router.post("/api/filtros/ramas", ctrlFiltros.filtrosRamas);
 
 
 
-router.get('/logout/facebook', function(req, res) {
+router.get('/logout/', function(req, res) {
   req.logout();
   res.redirect('/');
 });
 
-router.get('/login/facebook', passportFacebook.authenticate('facebook', { scope: ['public_profile']}));
-router.get('/auth/facebook/callback',
+router.get('/login/twitter', passportFacebook.authenticate('twitter', { scope: ['public_profile']}));
+router.get('/auth/twitter/callback',
 passportFacebook.authenticate('facebook', { failureRedirect: '/login' }),
   function(req, res) {
     // Successful authentication, redirect home.
