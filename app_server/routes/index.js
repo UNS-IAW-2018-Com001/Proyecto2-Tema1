@@ -15,7 +15,7 @@ require('../passport')(passport);
 
 // Indicamos que use sesiones, para almacenar el objeto usuario
 // y que lo recuerde aunque abandonemos la página
-//router.use(express.session({ secret: 'user' }));
+/router.use(express.session({ secret: 'SECRET' }));
 
 // Configuración de Passport. Lo inicializamos
 // y le indicamos que Passport maneje la Sesión
