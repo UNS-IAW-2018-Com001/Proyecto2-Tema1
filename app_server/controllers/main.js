@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Grupo = mongoose.model('grupos');
 const Filtro = mongoose.model('filtros');
+const User = mongoose.model('user');
 
 /* GET home page */
 const index = function(req, res) {
@@ -9,7 +10,8 @@ const index = function(req, res) {
 				res.render('index', {
 					title: 'Scouts y Guias en Argentina',
 					filtros: Filtro,
-					grupos: Grupo
+					grupos: Grupo,
+					user: User
 				});
 			})
 		})

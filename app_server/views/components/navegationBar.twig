@@ -22,7 +22,12 @@
 
                    <ul class="nav navbar-nav navbar-right">
                        <li id="contInicio">
-                       <a class="btn btn-login waves-effect waves-light" data-toggle="modal" data-target="#elegantModalForm">Login</a>
+                       {% if user %}
+                          <a class="btn btn-login waves-effect waves-light" href='logout' >Logout</a>
+                      {% elseif kenny.dead %}
+                          <a class="btn btn-login waves-effect waves-light" data-toggle="modal" data-target="#elegantModalForm">Login</a>
+                        {% else %}
+                      {% endif %}
                      </li>
                    </ul>
 
