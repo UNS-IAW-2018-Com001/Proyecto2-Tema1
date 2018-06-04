@@ -24,9 +24,8 @@
                        <li id="contInicio">
                        {% if user %}
                           <a class="btn btn-login waves-effect waves-light" href='logout' >Logout</a>
-                      {% elseif kenny.dead %}
+                      {% else%}
                           <a class="btn btn-login waves-effect waves-light" data-toggle="modal" data-target="#elegantModalForm">Login</a>
-                        {% else %}
                       {% endif %}
                      </li>
                    </ul>
