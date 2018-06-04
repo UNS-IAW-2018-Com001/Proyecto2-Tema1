@@ -10,7 +10,7 @@ const ctrlPreferencias = require('../controllers/preferenciasController');
 const ctrlFiltros = require('../controllers/filtrosController');
 
 
-require('./models/user');
+require('../models/user');
 require('./passport')(passport);
 
 // Configuración de Passport. Lo inicializamos
