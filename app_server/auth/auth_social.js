@@ -4,7 +4,7 @@ var Strategy = require('passport-twitter').Strategy;
 var User = require('../models/user');
 
 // Configuración del autenticado con Twitter
-	passport.use(new TwitterStrategy({
+	passport.use(new Strategy({
 		consumerKey		 : "ptdboGkr8BZZR2xJ1JqJw2pol",
 		consumerSecret	: "kXwpCuBJb19xVjImB1lj6tH3XF7NrVaHSnXCAMM8scMWHAQii6",
 		callbackURL		 : '/auth/twitter/callback'
