@@ -13,14 +13,26 @@ const ctrlFiltros = require('../controllers/filtrosController');
 require('../models/user');
 require('../passport')(passport);
 
+// Configuración de Passport. Lo inicializamos
+// y le indicamos que Passport maneje la Sesión
+router.use(passport.initialize());
+router.use(passport.session());
+
+
+router.use(express.methodOverride());
+
+// Ruta de los archivos estáticos (HTML estáticos, JS, CSS,...)
+router.use(express.static(path.join(__dirname, 'public')));
 // Indicamos que use sesiones, para almacenar el objeto usuario
 // y que lo recuerde aunque abandonemos la página
-router.use(express.session({ secret: 'SECRET' }));
+router.use(express.session({ secret: 'lollllo' }));
 
 // Configuración de Passport. Lo inicializamos
 // y le indicamos que Passport maneje la Sesión
 router.use(passport.initialize());
 router.use(passport.session());
+
+
 
 
 /* GET home page. */
@@ -54,7 +66,7 @@ router.get('/auth/twitter/callback', passport.authenticate('twitter',
 ));
 // Ruta de callback, a la que redirigirá tras autenticarse con Facebook.
 // En caso de fallo redirige a otra vista '/login'
-router.get('/auth/facebook/callback', passport.authenticate('facebook',
+app.get('/auth/facebook/callback', passport.authenticate('facebook',
   { successRedirect: '/', failureRedirect: '/login' }
 ));
 
