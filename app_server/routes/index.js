@@ -13,10 +13,15 @@ const ctrlFiltros = require('../controllers/filtrosController');
 require('../models/user');
 require('../passport')(passport);
 
+// Indicamos que use sesiones, para almacenar el objeto usuario
+// y que lo recuerde aunque abandonemos la página
+router.use(express.session({ secret: 'user' }));
+
 // Configuración de Passport. Lo inicializamos
 // y le indicamos que Passport maneje la Sesión
 router.use(passport.initialize());
 router.use(passport.session());
+
 
 /* GET home page. */
 router.get('/', ctrlMain.index);
