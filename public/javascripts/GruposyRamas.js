@@ -204,7 +204,7 @@ function isEmpty(obj) {
     return Object.keys(obj).length === 0;
 }
 function habilitarComentario(){
-  FB.getLoginStatus(function(response){
+/*  FB.getLoginStatus(function(response){
   if(response.status=='connected') {
     $('#warningComentario').hide();
     $('#nuevoComentario').prop('disabled', false);
@@ -213,7 +213,7 @@ function habilitarComentario(){
       $('#warningComentario').show();
       $('#nuevoComentario').prop('disabled', true);
   }
-  });
+});*/
 }
 
 function mostrarComentarios(comentario) {

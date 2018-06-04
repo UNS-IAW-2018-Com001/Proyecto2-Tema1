@@ -18,10 +18,10 @@ function guadarCSSActual(){
 
 function cambiarArchivoCss(archivo) {
     document.getElementById('cssArchivo').href = archivo;
-    FB.getLoginStatus(function(response){
+  /*  FB.getLoginStatus(function(response){
     if(response.status=='connected') {
       var elemento_nuevo={idUser:dataUser.id,css:archivo};
       guardar('./api/preferenciasUsuario',elemento_nuevo);
     }
-    });
+  });*/
 }
