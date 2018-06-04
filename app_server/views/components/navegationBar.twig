@@ -21,13 +21,20 @@
                    </ul>
 
                    <ul class="nav navbar-nav navbar-right">
-                       <li id="contInicio">
+
                        {% if user %}
+                       <li class="nav-item" id="logout">
                           <a class="btn btn-login waves-effect waves-light" href='/logout' >Logout</a>
+                       </li>
                       {% else%}
-                          <a class="btn btn-login waves-effect waves-light" data-toggle="modal" data-target="#elegantModalForm">Login</a>
+                      <li class="nav-item" id="login">
+                          <div class="text-center">
+                            <a class="btn btn-login waves-effect waves-light" data-toggle="modal" data-target="#elegantModalForm">Login</a>
+                          </div>
+                      </li>
+
                       {% endif %}
-                     </li>
+
                    </ul>
 
                </div><!-- /.navbar-collapse -->
