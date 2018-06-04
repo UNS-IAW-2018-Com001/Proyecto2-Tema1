@@ -33,8 +33,9 @@ router.get('/logout/', function(req, res) {
 });
 
 router.get('/login/twitter', passportFacebook.authenticate('twitter', { scope: ['public_profile']}));
-router.get('/auth/twitter/callback',
-passportFacebook.authenticate('facebook', { failureRedirect: '/login' }),
+router.get('/auth/twitter/callback', passport.authenticate('twitter',
+  { successRedirect: '/', failureRedirect: '/login' }
+));
   function(req, res) {
     // Successful authentication, redirect home.
     res.redirect('/');
