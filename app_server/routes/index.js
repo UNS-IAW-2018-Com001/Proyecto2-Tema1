@@ -18,23 +18,6 @@ require('../passport')(passport);
 router.use(passport.initialize());
 router.use(passport.session());
 
-
-router.use(express.methodOverride());
-
-// Ruta de los archivos estáticos (HTML estáticos, JS, CSS,...)
-router.use(express.static(path.join(__dirname, 'public')));
-// Indicamos que use sesiones, para almacenar el objeto usuario
-// y que lo recuerde aunque abandonemos la página
-router.use(express.session({ secret: 'lollllo' }));
-
-// Configuración de Passport. Lo inicializamos
-// y le indicamos que Passport maneje la Sesión
-router.use(passport.initialize());
-router.use(passport.session());
-
-
-
-
 /* GET home page. */
 router.get('/', ctrlMain.index);
 router.get('/api/grupos', ctrlGrupos.getGrupos);
