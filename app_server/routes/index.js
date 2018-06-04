@@ -10,6 +10,9 @@ const ctrlPreferencias = require('../controllers/preferenciasController');
 const ctrlFiltros = require('../controllers/filtrosController');
 
 
+require('../models/user');
+require('../passport')(passport);
+
 // Indicamos que use sesiones, para almacenar el objeto usuario
 // y que lo recuerde aunque abandonemos la página
 router.use(express.session({ secret: 'SECRET' }));
@@ -19,9 +22,6 @@ router.use(express.session({ secret: 'SECRET' }));
 router.use(passport.initialize());
 router.use(passport.session());
 
-
-require('../models/user');
-require('../passport')(passport);
 
 /* GET home page. */
 router.get('/', ctrlMain.index);
