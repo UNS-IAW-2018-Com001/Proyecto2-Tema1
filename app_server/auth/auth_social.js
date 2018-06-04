@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('user');
+
+const passport = require('passport');
 // Estrategia de autenticación con Twitter
 var TwitterStrategy = require('passport-twitter').Strategy;
 // Estrategia de autenticación con Facebook
