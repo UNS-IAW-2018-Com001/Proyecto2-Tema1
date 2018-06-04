@@ -7,7 +7,7 @@ const ctrlRamas = require('../controllers/ramasController');
 const ctrlComentarios = require('../controllers/comentariosController');
 const ctrlPreferencias = require('../controllers/preferenciasController');
 const ctrlFiltros = require('../controllers/filtrosController');
-const passportFacebook = require('../auth/auth_social');
+const passport= require('../auth/auth_social');
 
 
 /* GET home page. */
