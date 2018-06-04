@@ -19,23 +19,24 @@ app.set('view engine', 'twig');
 
 
 
-app.use(cookieParser());
 app.use(logger('dev'));
+
+// Middlewares de Express que nos permiten enrutar y poder
+// realizar peticiones HTTP (GET, POST, PUT, DELETE)
+app.use(cookieParser());
+app.use(express.urlencoded());
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
-app.use(require('express-session')({
-  secret: 'nodejs-twig-secret',
-  resave: true,
-  saveUninitialized: true
-}));
+// Ruta de los archivos estáticos (HTML estáticos, JS, CSS,...)
+app.use(express.static(path.join(__dirname, 'public')));
+// Indicamos que use sesiones, para almacenar el objeto usuario
+// y que lo recuerde aunque abandonemos la página
+app.use(express.session({ secret: 'lollllo' }));
 
-//passport setup
+// Configuración de Passport. Lo inicializamos
+// y le indicamos que Passport maneje la Sesión
 app.use(passport.initialize());
 app.use(passport.session());
-
-
 
 
 
