@@ -11,7 +11,7 @@ const ctrlFiltros = require('../controllers/filtrosController');
 
 
 require('../models/user');
-require('.../passport')(passport);
+require('..../passport')(passport);
 
 // Configuración de Passport. Lo inicializamos
 // y le indicamos que Passport maneje la Sesión
