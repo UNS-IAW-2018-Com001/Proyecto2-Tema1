@@ -27,7 +27,7 @@ module.exports = function(passport) {
 	passport.use(new TwitterStrategy({
 		consumerKey		 : 'ptdboGkr8BZZR2xJ1JqJw2pol',
 		consumerSecret	:'kXwpCuBJb19xVjImB1lj6tH3XF7NrVaHSnXCAMM8scMWHAQii6',
-		callbackURL		 : '/auth/twitter/callback'
+		callbackURL		 : 'https://scoutsenargentina.herokuapp.com/auth/twitter/callback'
 	}, function(accessToken, refreshToken, profile, done) {
 		// Busca en la base de datos si el usuario ya se autenticó en otro
 		// momento y ya está almacenado en ella
@@ -55,7 +55,7 @@ module.exports = function(passport) {
 	passport.use(new FacebookStrategy({
 		clientID			: 1999374736802788,
 		clientSecret	: '82f6b86269dc15614bff103657053c19',
-		callbackURL	 : '/auth/facebook/callback',
+		callbackURL	 : 'https://scoutsenargentina.herokuapp.com/auth/facebook/callback',
 		profileFields : ['id', 'displayName', /*'provider',*/ 'photos']
 	}, function(accessToken, refreshToken, profile, done) {
 		// El campo 'profileFields' nos permite que los campos que almacenamos
