@@ -25,8 +25,8 @@ module.exports = function(passport) {
 
 	// Configuración del autenticado con Twitter
 	passport.use(new TwitterStrategy({
-		consumerKey		 : ptdboGkr8BZZR2xJ1JqJw2pol,
-		consumerSecret	:kXwpCuBJb19xVjImB1lj6tH3XF7NrVaHSnXCAMM8scMWHAQii6,
+		consumerKey		 : 'ptdboGkr8BZZR2xJ1JqJw2pol',
+		consumerSecret	:'kXwpCuBJb19xVjImB1lj6tH3XF7NrVaHSnXCAMM8scMWHAQii6',
 		callbackURL		 : '/auth/twitter/callback'
 	}, function(accessToken, refreshToken, profile, done) {
 		// Busca en la base de datos si el usuario ya se autenticó en otro
