@@ -10,13 +10,6 @@ const ctrlPreferencias = require('../controllers/preferenciasController');
 const ctrlFiltros = require('../controllers/filtrosController');
 
 
-require('../models/user');
-require('../passport')(passport);
-
-// Configuración de Passport. Lo inicializamos
-// y le indicamos que Passport maneje la Sesión
-router.use(passport.initialize());
-router.use(passport.session());
 
 /* GET home page. */
 router.get('/', ctrlMain.index);

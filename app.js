@@ -3,21 +3,33 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+var passport = require('passport'); // Passport: Middleware de Node que facilita la autenticación de usuarios
+
 require('./app_server/models/db')
 
 const indexRouter = require('./app_server/routes/index');
 
 const app = express();
 
+require('./app_server/models/user');
+require('./passport')(passport);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'twig');
+
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(express.session({ secret: 'SECRET' }));
+// Configuración de Passport. Lo inicializamos
+// y le indicamos que Passport maneje la Sesión
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', indexRouter);
 
