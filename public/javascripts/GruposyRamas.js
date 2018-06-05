@@ -22,7 +22,7 @@ $(function () {
            guadarCSSActual();
          }
      }
-  }); 
+  });
 
   $.get("./api/grupos", function (data) {
     grupos = data;
@@ -48,7 +48,9 @@ $(document).on("click","#id_grupo", function(){
         mostrarGrupo();
     });
 
-
+    $(document).on("click","#logout", function(){
+            dataUser=null;
+        });
 
   });
 
