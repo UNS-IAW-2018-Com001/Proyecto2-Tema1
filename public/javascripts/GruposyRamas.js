@@ -18,6 +18,13 @@ $(function () {
      dataUser = data;
   });
 
+  if (dataUser != null){
+    habilitarComentario();
+    if (dataUser.css ==null){
+        guadarCSSActual();
+      }
+  }
+
   $.get("./api/grupos", function (data) {
     grupos = data;
     $('#panelInfo').hide();
@@ -43,17 +50,6 @@ $(document).on("click","#id_grupo", function(){
     });
 
 
-
-//login facebook
-$.ajax({
-  //NUEVO AGREGADO
-      if (dataUser != null){
-        habilitarComentario();
-        if (dataUser.css ==null){
-            guadarCSSActual();
-          }
-      }
-});
 
 //funcion relacionada a cada uno de los botones de grupo
 
