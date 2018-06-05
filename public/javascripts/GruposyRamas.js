@@ -13,11 +13,16 @@ var ramasFiltradas=[];
 
 
 $(function () {
-    $.get("./api/grupos", function (data) {
-       grupos = data;
-      $('#panelInfo').hide();
-       $('#panel-nuevoComentario').hide();
-       initMap();
+  /////NUEVO AGREGADO
+  $.get("./", function (data) {
+     dataUser = data;
+  });
+
+  $.get("./api/grupos", function (data) {
+    grupos = data;
+    $('#panelInfo').hide();
+    $('#panel-nuevoComentario').hide();
+    initMap();
  });
 
 $(document).on("click",".Botongrupos", function(){
@@ -38,33 +43,16 @@ $(document).on("click","#id_grupo", function(){
     });
 
 
-/*
+
 //login facebook
 $.ajax({
-        url: '//connect.facebook.net/es_ES/all.js',
-        dataType: 'script',
-        cache: true,
-        success: function() {
-          FB.init({
-        appId: '211557066103646',
-        xfbml: true
-      });
-      FB.Event.subscribe('auth.authResponseChange', function(response) {
+  //NUEVO AGREGADO
+      if (dataUser!=null){
         habilitarComentario();
-        if (response && response.status == 'connected') {
-          FB.api('/me', function(response) {
-            dataUser=response;
-
+        if (dataUser.css ==null{
             guadarCSSActual();
-          });
-        }else
-            dataUser=null;
-      });
-      }
-    });
-*/
-
-});
+          }
+        });
 
 //funcion relacionada a cada uno de los botones de grupo
 

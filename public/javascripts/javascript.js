@@ -4,24 +4,25 @@ function cargarArchivoCSS(){
 }
 
 function guadarCSSActual(){
-    $.get("./api/preferenciasUsuario?user_id="+dataUser.id, function (data) {
+    $.get("./api/user?user_id="+dataUser._id, function (data) {
       if(data!=null){
         document.getElementById('cssArchivo').href=data.css;
       }
     else{
       var archivo=document.getElementById('cssArchivo').href;
-      var elemento_nuevo={idUser:dataUser.id,css:archivo};
-      guardar('./api/preferenciasUsuario',elemento_nuevo);
+      var elemento_nuevo={provider_id: dataUser.id, provider: dataUser.provider, name : dataUser.displayName, photo: dataUser.photos[0].value ,css:archivo};
+      guardar('./api/user',elemento_nuevo);
     }
   });
 }
 
+
+
 function cambiarArchivoCss(archivo) {
     document.getElementById('cssArchivo').href = archivo;
-  /*  FB.getLoginStatus(function(response){
-    if(response.status=='connected') {
-      var elemento_nuevo={idUser:dataUser.id,css:archivo};
-      guardar('./api/preferenciasUsuario',elemento_nuevo);
+    if(dataUser !=null) {
+      var elemento_nuevo={provider_id: dataUser.id, provider: dataUser.provider, name : dataUser.displayName, photo: dataUser.photos[0].value ,css:archivo};
+      guardar('./api/user',elemento_nuevo);
     }
-  });*/
+  });
 }
