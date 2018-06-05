@@ -16,7 +16,13 @@ $(function () {
   /////NUEVO AGREGADO
   $.get("./", function (data) {
      dataUser = data.user;
-  });
+     if (dataUser != null){
+       habilitarComentario();
+       if (dataUser.css ==null){
+           guadarCSSActual();
+         }
+     }
+  }); 
 
   $.get("./api/grupos", function (data) {
     grupos = data;
@@ -42,15 +48,11 @@ $(document).on("click","#id_grupo", function(){
         mostrarGrupo();
     });
 
-    $.ajax({
-    if (dataUser != null){
-      habilitarComentario();
-      if (dataUser.css ==null){
-          guadarCSSActual();
-        }
-    }
+
+
   });
-});
+
+
 
 
 //funcion relacionada a cada uno de los botones de grupo
