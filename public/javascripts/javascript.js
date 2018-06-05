@@ -24,5 +24,4 @@ function cambiarArchivoCss(archivo) {
       var elemento_nuevo={provider_id: dataUser.id, provider: dataUser.provider, name : dataUser.displayName, photo: dataUser.photos[0].value ,css:archivo};
       guardar('./api/user',elemento_nuevo);
     }
-  });
 }

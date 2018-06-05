@@ -47,12 +47,13 @@ $(document).on("click","#id_grupo", function(){
 //login facebook
 $.ajax({
   //NUEVO AGREGADO
-      if (dataUser!=null){
+      if (dataUser != null){
         habilitarComentario();
-        if (dataUser.css ==null{
+        if (dataUser.css ==null){
             guadarCSSActual();
           }
-        });
+      }
+});
 
 //funcion relacionada a cada uno de los botones de grupo
 
