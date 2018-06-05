@@ -15,15 +15,8 @@ var ramasFiltradas=[];
 $(function () {
   /////NUEVO AGREGADO
   $.get("./", function (data) {
-     dataUser = data;
+     dataUser = data.user;
   });
-
-  if (dataUser != null){
-    habilitarComentario();
-    if (dataUser.css ==null){
-        guadarCSSActual();
-      }
-  }
 
   $.get("./api/grupos", function (data) {
     grupos = data;
@@ -49,6 +42,15 @@ $(document).on("click","#id_grupo", function(){
         mostrarGrupo();
     });
 
+    $.ajax({
+    if (dataUser != null){
+      habilitarComentario();
+      if (dataUser.css ==null){
+          guadarCSSActual();
+        }
+    }
+  });
+});
 
 
 //funcion relacionada a cada uno de los botones de grupo
@@ -185,12 +187,13 @@ function mostrarInfoGrupo(nombre_cod) {
     });
 
 }
+
 function isEmpty(obj) {
     return Object.keys(obj).length === 0;
 }
+
 function habilitarComentario(){
-/*  FB.getLoginStatus(function(response){
-  if(response.status=='connected') {
+  if(dataUser!=null) {
     $('#warningComentario').hide();
     $('#nuevoComentario').prop('disabled', false);
   }
@@ -198,7 +201,6 @@ function habilitarComentario(){
       $('#warningComentario').show();
       $('#nuevoComentario').prop('disabled', true);
   }
-});*/
 }
 
 function mostrarComentarios(comentario) {
@@ -298,6 +300,7 @@ function obtenerLocalizacionGrupos() {
 
     return retorno;
 }
+
 function obtenerImagenesGrupo(nombre_cod) {
     var retorno = new Array();
    $.each(ramas, function (index, rama) {
@@ -312,6 +315,7 @@ function obtenerImagenesGrupo(nombre_cod) {
         });
     return retorno;
 }
+
 function obtenerImagenesRama(num) {
     var retorno = new Array();
    $.each(ramas, function (index, rama) {
