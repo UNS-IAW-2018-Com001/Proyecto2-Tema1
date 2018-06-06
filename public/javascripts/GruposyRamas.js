@@ -13,7 +13,7 @@ var ramasFiltradas=[];
 
 
 $(function () {
-  /////NUEVO AGREGADO
+/*  /////NUEVO AGREGADO
   $.get("./", function (data) {
      dataUser = data;
        $("#filtroTag").empty();
@@ -24,7 +24,7 @@ $(function () {
            guadarCSSActual();
          }
      }
-  });
+  });*/
 
   $.get("./api/grupos", function (data) {
     grupos = data;
