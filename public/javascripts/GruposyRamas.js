@@ -61,7 +61,7 @@ $(document).on("click","#id_grupo", function(){
 
 
 function capturarUsuario(){
-    var id_user= $('#btn-login').attr('id');
+    var id_user= $(".btn-login").attr('id');
     if(id_user!="login"){
       $.get("./api/user?user_id="+id_user, function (data) {
          dataUser = data;
