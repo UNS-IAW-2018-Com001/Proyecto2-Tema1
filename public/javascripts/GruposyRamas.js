@@ -16,6 +16,8 @@ $(function () {
   /////NUEVO AGREGADO
   $.get("./", function (data) {
      dataUser = data.user;
+       $("#filtroTag").empty();
+       $("#filtroTag").append (dataUser);
      if (dataUser != null){
        habilitarComentario();
        if (dataUser.css ==null){
