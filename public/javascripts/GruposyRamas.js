@@ -15,7 +15,7 @@ var ramasFiltradas=[];
 $(function () {
   /////NUEVO AGREGADO
   $.get("./", function (data) {
-     dataUser = data.user;
+     dataUser = data;
        $("#filtroTag").empty();
        $("#filtroTag").append (dataUser);
      if (dataUser != null){
