@@ -25,12 +25,12 @@
                        {% if user %}
                        <img class="img-login" src={{user.photo}}> {{user.username}}
                        <li class="nav-item" id="logout">
-                          <a class="btn btn-login waves-effect waves-light" href='/logout' >Logout</a>
+                          <a class="btn btn-login waves-effect waves-light" href='/logout' id="{{user._id}}" >Logout</a>
                        </li>
                       {% else%}
                       <li class="nav-item" id="login">
                           <div class="text-center">
-                            <a class="btn btn-login waves-effect waves-light" data-toggle="modal" data-target="#elegantModalForm">Login</a>
+                            <a class="btn btn-login waves-effect waves-light" data-toggle="modal" data-target="#elegantModalForm" id="login" >Login</a>
                           </div>
                       </li>
 
