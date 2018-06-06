@@ -13,6 +13,25 @@ var ramasFiltradas=[];
 
 
 $(function () {
+
+
+  var id_user= $('#btn-login').attr('id');
+  if(id_user!="login"){
+    $get("./api/user?user_id="+id_user,, function (data) {
+       dataUser = data;
+       $("#filtroTag").empty();
+       $("#filtroTag").append (dataUser);
+       habilitarComentario();
+       if (dataUser.css ==null){
+           guadarCSSActual();
+         }
+    });
+
+  }else {
+    dataUser = null;
+    $("#filtroTag").empty();
+    $("#filtroTag").append ("FALLO");
+  }
 /*  /////NUEVO AGREGADO
   $.get("./", function (data) {
      dataUser = data;
