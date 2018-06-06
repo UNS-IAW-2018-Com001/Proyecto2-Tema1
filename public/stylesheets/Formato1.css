@@ -473,19 +473,19 @@ ul {
     border: 1px solid #082783;
     box-shadow: 0 1px #4C6BC7 inset;
     color: white;
-    padding: 13px 5px;
+    padding: 3px 5px;
     text-decoration: none;
     text-shadow: 0 -1px 0 #082783;
     font: 12px Verdana, sans-serif;
-      width: 60px; height: 50px;
+    width: 60px; height: 50px;
 }
 
 .img-login {
-  width: 60px; height: 50px;
+  width: 50px; height: 50px;
 }
 
 .modal-header, h4, .close {
-      background-color: #5c74b8;
+      background-color: ##5c74b8;
       color:white !important;
       text-align: center;
       font-size: 30px;
