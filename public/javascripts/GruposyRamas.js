@@ -15,23 +15,6 @@ var ramasFiltradas=[];
 $(function () {
 
 
-  var id_user= $('#btn-login').attr('id');
-  if(id_user!="login"){
-    $.get("./api/user?user_id="+id_user, function (data) {
-       dataUser = data;
-       $("#filtroTag").empty();
-       $("#filtroTag").append (dataUser);
-       habilitarComentario();
-       if (dataUser.css ==null){
-           guadarCSSActual();
-         }
-    });
-
-  }else {
-    dataUser = null;
-    $("#filtroTag").empty();
-    $("#filtroTag").append ("FALLO");
-  }
 /*  /////NUEVO AGREGADO
   $.get("./", function (data) {
      dataUser = data;
@@ -47,6 +30,7 @@ $(function () {
 
   $.get("./api/grupos", function (data) {
     grupos = data;
+    capturarUsuario();
     $('#panelInfo').hide();
     $('#panel-nuevoComentario').hide();
     initMap();
@@ -76,7 +60,25 @@ $(document).on("click","#id_grupo", function(){
   });
 
 
+function capturarUsuario(){
+    var id_user= $('#btn-login').attr('id');
+    if(id_user!="login"){
+      $.get("./api/user?user_id="+id_user, function (data) {
+         dataUser = data;
+         $("#filtroTag").empty();
+         $("#filtroTag").append (dataUser);
+         habilitarComentario();
+         if (dataUser.css ==null){
+             guadarCSSActual();
+           }
+      });
 
+    }else {
+      dataUser = null;
+      $("#filtroTag").empty();
+      $("#filtroTag").append ("FALLO");
+    }
+}
 
 //funcion relacionada a cada uno de los botones de grupo
 
