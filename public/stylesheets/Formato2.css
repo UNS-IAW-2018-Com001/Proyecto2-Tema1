@@ -485,6 +485,15 @@ ul {
       text-align: center;
       font-size: 30px;
   }
-  .modal-footer {
-      background-color: #f9f9f9;
+  .modal-body {
+      background-color: #f2efef;
+      color:#6b6a6a;
   }
+
+.btn-lg{
+  margin: 0 auto;
+  display: inline-block;
+  background: #55ACEE;
+  color: white;
+
+}
