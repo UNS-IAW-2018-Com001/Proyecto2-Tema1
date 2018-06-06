@@ -21,7 +21,8 @@ var User = require('../models/user');
 				provider_id	: profile.id,
 				provider		 : profile.provider,
 				name				 : profile.displayName,
-				photo				: profile.photos[0].value
+				photo				: profile.photos[0].value,
+				css 				: 	"sin_estilo"
 			});
 			//...y lo almacena en la base de datos
 			user.save(function(err) {
