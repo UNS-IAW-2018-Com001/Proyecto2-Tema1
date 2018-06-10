@@ -7,7 +7,7 @@ function cargarArchivoCSS(){
 function guadarCSSActual(){
     $.get("./api/user?user_id="+dataUser._id, function (data) {
        var archivo=document.getElementById('cssArchivo').href;
-      var elemento_nuevo={provider_id: dataUser.id, provider: dataUser.provider, name : dataUser.displayName, photo: dataUser.photos[0].value ,css:archivo};
+      var elemento_nuevo={provider_id: dataUser.id, provider: dataUser.provider, name : dataUser.displayName, photo: dataUser.photo,css:archivo};
 
       if(data!=null){
          if(data.css!="sin_estilo"){
@@ -26,7 +26,7 @@ function guadarCSSActual(){
 function cambiarArchivoCss(archivo) {
     document.getElementById('cssArchivo').href = archivo;
     if(dataUser !=null) {
-      var elemento_nuevo={provider_id: dataUser.id, provider: dataUser.provider, name : dataUser.displayName, photo: dataUser.photos[0].value ,css:archivo};
+      var elemento_nuevo={provider_id: dataUser.id, provider: dataUser.provider, name : dataUser.displayName, photo: dataUser.photo ,css:archivo};
       guardar('./api/user',elemento_nuevo);
     }
 }

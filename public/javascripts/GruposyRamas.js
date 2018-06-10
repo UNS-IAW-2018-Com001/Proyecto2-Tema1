@@ -363,7 +363,7 @@ function enviarComentario(){
 
     $('#panel-nuevoComentario').hide();
     var nick = dataUser.name;
-    var Imagen= dataUser.photos[0].value;
+    var Imagen= dataUser.photo;
     var comentario = $("#coment").val();
     var f = new Date();
     var Fecha = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
