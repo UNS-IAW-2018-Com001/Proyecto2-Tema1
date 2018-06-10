@@ -18,7 +18,8 @@ const postUser=function(req,res){
   					res.status(200).json(pedido);
   				}
   			})*/
-        user.update({ provider_id: req.body.elemento.provider_id }, { $set: { css: req.body.elemento.css }}, callback);
+      //  user.update({ provider_id: req.body.elemento.provider_id }, { $set: { css: req.body.elemento.css }}, callback);
+        user.update({provider_id: req.body.elemento.provider_id}, {$set: { css: req.body.elemento.css }}, {upsert: true}, function(err){});
 };
 
 function onInsert(err, docs){
