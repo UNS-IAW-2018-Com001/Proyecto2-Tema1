@@ -6,8 +6,8 @@ var User = require('../models/user_social');
 
 // Configuración del autenticado con google+
 passport.use(new GoogleStrategy({
-    consumerKey: "973282334177-jrq5gjurmq6osdsp1nebk2hrle2c46gl.apps.googleusercontent.com",
-    consumerSecret: "w_NxAjggdOwbrZ0m90Y3knIy",
+    clientID: "973282334177-jrq5gjurmq6osdsp1nebk2hrle2c46gl.apps.googleusercontent.com",
+    clientSecret: "w_NxAjggdOwbrZ0m90Y3knIy",
     callbackURL: "https://scoutsenargentina.herokuapp.com/auth/google/callback"
   },
   function(token, tokenSecret, profile, done) {
