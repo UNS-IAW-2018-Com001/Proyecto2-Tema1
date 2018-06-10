@@ -68,6 +68,8 @@ function capturarUsuario(){
          habilitarComentario();
          if (dataUser.css =="sin_estilo"){
              guadarCSSActual();
+           }else{
+              cargarArchivoCSS(dataUser.css);
            }
       });
 

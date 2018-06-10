@@ -2,7 +2,9 @@
 function cargarArchivoCSS(){
     document.getElementById('cssArchivo').href = "/stylesheets/Formato2.css";
 }
-
+function cargarArchivoCSS(ruta){
+    document.getElementById('cssArchivo').href = ruta;
+}
 
 function guadarCSSActual(){
     $.get("./api/user?user_id="+dataUser._id, function (data) {
