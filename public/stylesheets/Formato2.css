@@ -492,7 +492,7 @@ ul {
 
 
   .btn-fb{
-    margin: 0 auto;
+    margin: 5px;
     display: inline-block;
     background: #55ACEE;
     color: white;
@@ -500,7 +500,7 @@ ul {
   }
 
   .btn-Gl{
-    margin: 0 auto;
+    margin: 5px;
     display: inline-block;
       background: #dd4b39;
     color: white;
