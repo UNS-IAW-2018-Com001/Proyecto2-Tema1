@@ -379,8 +379,6 @@ function enviarComentario(){
 
 function guardar(ruta,elemento_nuevo) {
 	//const jsonString = JSON.stringify(Array.from(comentario.values()));
-  $("#filtroTag").empty();
-  $("#filtroTag").append (JSON.stringify({elemento: elemento_nuevo}));
 	$.ajax({
 	    url: ruta,
 	    type: 'POST',
