@@ -30,6 +30,7 @@ $(function () {
 
   $.get("./api/grupos", function (data) {
     grupos = data;
+    console.log("bbb");
     capturarUsuario();
     $('#panelInfo').hide();
     $('#panel-nuevoComentario').hide();
@@ -66,7 +67,7 @@ function capturarUsuario(){
       $.get("./api/user?user_id="+id_user, function (data) {
          dataUser = data;
          habilitarComentario();
-         console.log(dataUser);
+         console.log("aaaa"+dataUser);
          if (dataUser.css =="sin_estilo"){
              guadarCSSActual();
            }else{
