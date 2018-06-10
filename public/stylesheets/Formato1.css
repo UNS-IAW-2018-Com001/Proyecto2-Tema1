@@ -510,3 +510,11 @@ ul {
   color: white;
   margin-left: 40%;
 }
+
+#login {
+    display: table-cell;
+    vertical-align: middle;
+}
+#log {
+    display: table;
+}
