@@ -179,6 +179,9 @@ function mostrarInfoGrupo(nombre_cod) {
             $("#boddy2").append("<dt>Religion:</dt>");
             $("#boddy2").append($("<dd></dd>").text(grupo.religion));
 
+            $("#boddy2").append("<dt>Direccion:</dt>");
+            $("#boddy2").append($("<dd></dd>").text(grupo.ubicacion.address));
+
             centrarMapa(grupo.ubicacion.coords[0],grupo.ubicacion.coords[01]);
             map.setZoom(15);
 
