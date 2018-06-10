@@ -152,12 +152,12 @@ function mostrarInfoGrupo(nombre_cod) {
             $("#boddy2").append("<dt>Código:</dt>");
             $("#boddy2").append($("<dd></dd>").text(grupo.codigo));
 
+
             $("#boddy2").append("<dt>Direccion:</dt>");
-            $("#boddy2").append($("<dd></dd>").text(grupo.ubicacion.calle+" "+grupo.ubicacion.numero));
-
-                      //  $("#boddy2").append("<dt>Direccion:</dt>");
-            $("#boddy2").append($("<dd></dd>").text(grupo.ubicacion.ciudad+" "+grupo.ubicacion.pais));
-
+            $("#boddy2").append($("<dd></dd>").text(grupo.ubicacion.address));
+            $("#boddy2").append("<dt>Religion:</dt>");
+            $("#boddy2").append($("<dd></dd>").text(grupo.religion));
+            
             $("#boddy2").append("<dt>Fecha de creación:</dt>");
             $("#boddy2").append($("<dd></dd>").text(grupo.fecha_Creacion));
 
@@ -176,11 +176,7 @@ function mostrarInfoGrupo(nombre_cod) {
             $("#boddy2").append("<dt>Email:</dt>");
             $("#boddy2").append($("<dd></dd>").text(grupo.email));
 
-            $("#boddy2").append("<dt>Religion:</dt>");
-            $("#boddy2").append($("<dd></dd>").text(grupo.religion));
 
-            $("#boddy2").append("<dt>Direccion:</dt>");
-            $("#boddy2").append($("<dd></dd>").text(grupo.ubicacion.address));
 
             centrarMapa(grupo.ubicacion.coords[0],grupo.ubicacion.coords[01]);
             map.setZoom(15);
