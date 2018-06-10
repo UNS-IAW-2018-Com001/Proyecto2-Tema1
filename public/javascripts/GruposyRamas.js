@@ -66,6 +66,7 @@ function capturarUsuario(){
       $.get("./api/user?user_id="+id_user, function (data) {
          dataUser = data;
          habilitarComentario();
+         console.log(dataUser);
          if (dataUser.css =="sin_estilo"){
              guadarCSSActual();
            }else{
