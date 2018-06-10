@@ -30,6 +30,10 @@ const filtrosGrupos=function(req,res){
     var queryGrupo=Grupo.find({"_id":{$in:idGrupos}});
     if(filtros["Religion"])
         queryGrupo.where('religion').equals(filtros["Religion"]);
+    if(filtros["Inscripción"]){
+        queryGrupo.where('fechaInscripcion_inicio').lte(filtros["Inscripción"]);
+        queryGrupo.where('fechaIscripcion_fin').gte(filtros["Inscripción"]);
+    }
     
     queryGrupo.exec((err, gruposFiltrados) => { 
       res.status(200).jsonp(gruposFiltrados);
