@@ -8,7 +8,7 @@ const ctrlComentarios = require('../controllers/comentariosController');
 const ctrlUser = require('../controllers/userController');
 const ctrlFiltros = require('../controllers/filtrosController');
 const passport= require('../auth/auth_social');
-
+const passport2= require('../auth/auth_social_google');
 
 /* GET home page. */
 router.get('/', ctrlMain.index);
@@ -39,9 +39,9 @@ router.get('/auth/twitter', passport.authenticate('twitter'));
 router.get('/auth/twitter/callback',  passport.authenticate('twitter', { successRedirect: '/',
                                      failureRedirect: '/' }));
 
-//app.get('/auth/google', passport.authenticate('google');
+app.get('/auth/google', passport2.authenticate('google');
 
-//app.get('/auth/google/callback', passport.authenticate('google',  { successRedirect: '/',
-//                                     failureRedirect: '/' }));
+app.get('/auth/google/callback', passport2.authenticate('google',  { successRedirect: '/',
+                                failureRedirect: '/' }));
 
   module.exports = router;
