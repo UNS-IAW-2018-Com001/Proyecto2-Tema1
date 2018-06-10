@@ -30,39 +30,13 @@ const filtrosGrupos=function(req,res){
     var queryGrupo=Grupo.find({"_id":{$in:idGrupos}});
     if(filtros["Religion"])
         queryGrupo.where('religion').equals(filtros["Religion"]);
-    if(filtros["Inscripción"]){
-        if(filtros["Inscripción"]=="Inscripción abierta"){
-          queryGrupo.where('fechaInscripcion_inicio').lte(hoyFecha());
-          queryGrupo.where('fechaIscripcion_fin').gte(hoyFecha());  
-        }else{
-          queryGrupo.where('fechaInscripcion_inicio').gte(hoyFecha());
-          queryGrupo.where('fechaIscripcion_fin').lte(hoyFecha()); 
-
-        }
-    }
-    
+       
     queryGrupo.exec((err, gruposFiltrados) => { 
       res.status(200).jsonp(gruposFiltrados);
     });   
   });
 }; 
-function hoyFecha(){
-    var hoy = new Date();
-        var dd = hoy.getDate();
-        var mm = hoy.getMonth()+1;
-        var yyyy = hoy.getFullYear();
-        
-        dd = addZero(dd);
-        mm = addZero(mm);
- 
-        return dd+'/'+mm+'/'+yyyy;
-}
-function addZero(i) {
-    if (i < 10) {
-        i = '0' + i;
-    }
-    return i;
-}
+
 const filtrosRamas=function(req,res){
   var filtros= req.body.filtros;
   var codigo=req.body.cod;
