@@ -1,7 +1,7 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
 var Strategy = require('passport-twitter').Strategy;
-var User = require('../models/user');
+var User = require('../models/user_social');
 
 // Configuración del autenticado con Twitter
 	passport.use(new Strategy({

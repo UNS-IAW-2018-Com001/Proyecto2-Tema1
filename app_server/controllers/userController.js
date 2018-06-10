@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const user = mongoose.model('user');
+const user = mongoose.model('user_social');
 
 const getUser=function(req,res){
   var id_usuario=req.param("user_id");

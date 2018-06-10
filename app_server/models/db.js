@@ -42,4 +42,4 @@ require('./grupos');
 require('./ramas');
 require('./comentarios');
 require('./preferenciasUsuario');
-require('./user');
+require('./user_social');
