@@ -41,7 +41,9 @@ router.get('/auth/twitter/callback',  passport.authenticate('twitter', { success
 
 app.get('/auth/google', passport2.authenticate('google'));
 
-app.get('/auth/google/callback', passport2.authenticate('google',  { successRedirect: '/',
-                                failureRedirect: '/' }));
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }),
+  function(req, res) {
+    res.redirect('/');
+  });
 
   module.exports = router;

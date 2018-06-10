@@ -1,6 +1,6 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
-var GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var User = require('../models/user_social');
 
 
