@@ -490,11 +490,19 @@ ul {
       color:#6b6a6a;
   }
 
-.btn-lg{
-  margin: 0 auto;
-  display: inline-block;
-  background: #55ACEE;
-  color: white;
-  margin-left: 40%;
 
-}
+  .btn-fb{
+    margin: 0 auto;
+    display: inline-block;
+    background: #55ACEE;
+    color: white;
+    margin-left: 40%;
+  }
+
+  .btn-Gl{
+    margin: 0 auto;
+    display: inline-block;
+      background: #ff0505;
+    color: white;
+    margin-left: 40%;
+  }

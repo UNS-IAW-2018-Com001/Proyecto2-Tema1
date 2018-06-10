@@ -11,7 +11,7 @@ passport.use(new GoogleStrategy({
     callbackURL: "https://scoutsenargentina.herokuapp.com/auth/google/callback"
   },
   function(token, tokenSecret, profile, done) {
-      User.findOrCreate({ provider_id: profile.id }, function (err, user) {
+      User.findOrCreate({ googleId: profile.id }, function (err, user) {
 				if(err) throw(err);
 				// Si existe en la Base de Datos, lo devuelve
 				if(!err && user!= null) return done(null, user);
