@@ -39,9 +39,9 @@ router.get('/auth/twitter', passport.authenticate('twitter'));
 router.get('/auth/twitter/callback',  passport.authenticate('twitter', { successRedirect: '/',
                                      failureRedirect: '/' }));
 
-app.get('/auth/google', passport2.authenticate('google'));
+router.get('/auth/google', passport2.authenticate('google'));
 
-app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }),
+router.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }),
   function(req, res) {
     res.redirect('/');
   });
