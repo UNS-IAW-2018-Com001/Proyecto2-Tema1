@@ -485,12 +485,12 @@ ul {
 }
 
 .modal-header,  .close {
-      background-color: ##5c74b8;
+      background-color: #5c74b8;
       color:white !important;
       text-align: center;
       font-size: 30px;
   }
-  .modal-body {
+  .modal-body,  .modal-footer{
       background-color: #f2efef;
       color:#6b6a6a;
   }
