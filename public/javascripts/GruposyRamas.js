@@ -402,9 +402,9 @@ function guardar2(ruta,elemento_nuevo) {
     	contentType: "application/json",
     	dataType: "json",
 	    success: function(data){
-            console.log(data);
+            console.log(JSON.stringify(data));
         },
-      error:function(data){ console.log(data);}
+      error:function(data){ console.log(JSON.stringify(data));}
 	});
 }
 
