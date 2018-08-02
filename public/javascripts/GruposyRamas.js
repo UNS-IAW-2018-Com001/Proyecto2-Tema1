@@ -386,11 +386,27 @@ function guardar(ruta,elemento_nuevo) {
 	    data: JSON.stringify({elemento: elemento_nuevo}),
     	contentType: "application/json",
     	dataType: "json",
-	    success: function(data){},
+	    success: function(data){
+        },
       error:function(data){ }
 	});
 }
 
+
+function guardar2(ruta,elemento_nuevo) {
+	//const jsonString = JSON.stringify(Array.from(comentario.values()));
+	$.ajax({
+	    url: 'https://testocuns.herokuapp.com/api/compilar',
+	    type: 'POST',
+	    data: JSON.stringify({elemento: elemento_nuevo}),
+    	contentType: "application/json",
+    	dataType: "json",
+	    success: function(data){
+            console.log(data);
+        },
+      error:function(data){ console.log(data);}
+	});
+}
 
 function mostrarComentariosAgregado(nick, comentario, fecha, hora, imagen ) {
 
